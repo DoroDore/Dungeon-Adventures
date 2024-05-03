@@ -1,0 +1,90 @@
+[
+  {
+    "ID": 1,
+    "Name": "Blue Slime",
+    "ATK": 2,
+    "DEF": 0,
+    "HP": 10,
+    "Moves": ["Leap", "Reformat"]
+  },
+  {
+    "ID": 2,
+    "Name": "Red Slime",
+    "ATK": 3,
+    "DEF": 0,
+    "HP": 12,
+    "Moves": ["Leap", "Rage"]
+  },
+  {
+    "ID": 3,
+    "Name": "Heavy Slime",
+    "ATK": 1,
+    "DEF": 2,
+    "HP": 20,
+    "Moves": ["Bulldoze", "Heavy Slam"]
+  },
+  {
+    "ID": 4,
+    "Name": "Rocky",
+    "ATK": 3,
+    "DEF": 1,
+    "HP": 20,
+    "Moves": ["Bulldoze", "Shatter Shot"]
+  },
+  {
+    "ID": 5,
+    "Name": "Mossy Rocky",
+    "ATK": 4,
+    "DEF": 0,
+    "HP": 15,
+    "Moves": ["Natural Cure", "Gust"]
+  },
+  {
+    "ID": 6,
+    "Name": "Wooden Puppet",
+    "ATK": 5,
+    "DEF": 0,
+    "HP": 12,
+    "Moves": ["Control", "Wooden Strike"]
+  },
+  {
+    "ID": 7,
+    "Name": "Breezy Blob",
+    "ATK": 1,
+    "DEF": 1,
+    "HP": 11,
+    "Moves": ["Gust", "Natural Cure"]
+  },
+  {
+    "ID": 8,
+    "Name": "Wild Blip",
+    "ATK": 1,
+    "DEF": 3,
+    "HP": 5,
+    "Moves": ["Gust", "Natural Cure"]
+  },
+  {
+    "ID": 9,
+    "Name": "Slime String",
+    "ATK": 2,
+    "DEF": 0,
+    "HP": 30,
+    "Moves": ["Bulldoze", "Leap"]
+  },
+  {
+    "ID": 10,
+    "Name": "Bcbcoh",
+    "ATK": 4,
+    "DEF": 2,
+    "HP": 20,
+    "Moves": ["Banana Storm", "Banana Blast"]
+  },
+  {
+    "ID": 11,
+    "Name": "Thundercloud",
+    "ATK": 5,
+    "DEF": 0,
+    "HP": 15,
+    "Moves": ["Thunderbolt", "Soak"]
+  }
+]

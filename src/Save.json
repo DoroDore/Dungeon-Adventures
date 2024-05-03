@@ -1,0 +1,5 @@
+[
+  {"Mana":6,"DEF":4,"ATK":3,"HP":5,"Best Run":2,"Name":"NEWFILE1","Runs":1},
+  {"Mana":10,"DEF":0,"ATK":3,"HP":20,"Best Run":0,"Name":"hi","Runs":0},
+  {"Mana":0,"DEF":0,"ATK":1000,"HP":1000,"Best Run":0,"Name":"HackerMan","Runs":0}
+]
