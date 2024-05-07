@@ -1,0 +1,9 @@
+Items in this game are divided into two main types: Weapons and General Items.
+Each item has a given rarity. These include common, rare, epic, legendary, and sacred.
+It is important to note, however, that these items do not become any more common as the game progresses. Instead, their drop rates will be set for the entire game.
+On top of that, all items will have a "Latent Level" when obtained, which will not change. This essentially shows the power level of the weapon.
+As you progress deeper into the dungeon, items that you find will have a higher and higher latent level.
+That being said, storage is not unlimited in this game. This game's inventory takes the form of a bag with a set amount of space.
+ll items have their own size, and will take up space in the inventory.
+If the player encounters an item that exceeds the free space of their bag, they'll have to consume or dispose of items. Or, alternative, forgo that reward.
+It is important to remember that inventory management is extremely important, as the difference of a single item could go a long way. [Press Enter/Return to Exit]

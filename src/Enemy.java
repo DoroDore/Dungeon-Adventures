@@ -12,12 +12,8 @@ import java.util.Scanner;
 public class Enemy {
     public static Enemy gCurrentEnemy;
     static HashMap<String, Enemy> gEnemyMap = new HashMap<>();
-    private int mID;
     private String mName;
-    private int mATK;
-    private int mDEF;
-    private int mHP;
-    private int mOriginalHP; // New variable to store original HP
+    private int mID, mATK, mDEF, mHP, mOriginalHP; // New variable to store original HP
     private String[] mMoves;
 
     public Enemy(int ID, String name, int attack, int defense, int hp, String[] moves) {
