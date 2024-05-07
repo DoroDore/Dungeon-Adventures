@@ -1,0 +1,7 @@
+Each dungeon is constructed with a series of different tiles, with each providing their own unique challenges and experiences.
+In this game, there are six main tiles, each with their own different symbols:
+O: Empty Tile   W: Wall   F: Fight   E: Event   L: Loot   U: Exit (Where the player is represented by the character 'A')
+For Fight, Event, and Loot tiles, once each node is traveled to by the player, a random situation is picked from a set of different encounters for the player to face.
+Once the tile is completed, it will become an empty tile.
+That being said, if the player dies at any time within any of these events, they will lose their run.
+Finally, if the Exit Tile (U) is reached, there will be a final confirmation, and the user may choose not to ascend to the next floor. [Press Enter/Return to Exit]

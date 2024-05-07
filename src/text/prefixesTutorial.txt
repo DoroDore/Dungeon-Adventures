@@ -1,0 +1,7 @@
+This game uses a Prefixes Style Command system, which has been split into a variety of categories.
+These commands work by having the user first input a keyword, followed by a command within that category in the structure [Prefix] [Command].
+It is important to note that different phases have different prefix commands. These will be displayed at the start of every action.
+During the Movement/Map Phase of the game, there are three main prefixes: Move, Look, and Items.
+During Combat, there are three main prefixes: Attack, Skill, and Items. "Defend" is also an option that increases your defense.
+During Events and Encounters however, you will simply be prompted to input a corresponding key to pick your choices.
+To see what commands are available during any phase, simply input the universal "Help" prefix followed by the prefix you're uncertain about to find out more. [Press Enter/Return to Exit]

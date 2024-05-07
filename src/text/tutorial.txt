@@ -1,0 +1,11 @@
+Dungeon Adventures is a spin-off game based off the original hit scratch game "Roguelike Adventures"
+In this game, the gameplay is structured around randomly generated tile dungeons.
+The goal of this game is to get as many exploration points as possible during a run, and the game ends when the user dies.
+Exploration points can be obtained through a variety of ways: Exploring, Fighting, Events, Looting, etc. Below are the corresponding tiles:
+O: Empty Tile   W: Wall   F: Fight   E: Event   L: Loot   U: Exit (Where the player is represented by the character 'A')
+The amount of points rewarded is based on the difficultly of the encounter or the outcome of the event based on player choice.
+Though reaching and exiting a floor will reward you with the most points, it is also increases the difficultly of encounters.
+Thus, it is recommended that you spend time fully exploring a map before proceeding on, as you never know what loot you may find!
+The turns in this game are simple, with three main mechanics: Movement, Looking, and Items. This game uses prefixes to differentiate between the player's actions.
+For more information on any of these features please view their respective dedicated tutorials.
+With all that, good luck in the dungeon! [Press Enter/Return to Exit]
