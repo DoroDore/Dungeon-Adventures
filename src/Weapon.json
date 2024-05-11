@@ -1,0 +1,63 @@
+[
+  {
+    "ID": 1,
+    "Name": "Iron Broadsword",
+    "Size": 3,
+    "Rarity": "Common",
+    "Value": 100,
+    "Attack": 5,
+    "Defense": 1,
+    "Skill": "None",
+    "SkillCost": "null",
+    "SkillDescription": "null"
+  },
+  {
+    "ID": 2,
+    "Name": "Charred Staff",
+    "Size": 3,
+    "Rarity": "Common",
+    "Value": 70,
+    "Attack": 3,
+    "Defense": 1,
+    "Skill": "Fireball",
+    "SkillCost": "25",
+    "SkillDescription": "Send out a fireball dealing amplified damage."
+  },
+  {
+    "ID": 3,
+    "Name": "Legendary Sword",
+    "Size": 5,
+    "Rarity": "Legendary",
+    "Value": 1000,
+    "Attack": 25,
+    "Defense": 10,
+    "Skill": "Sky Splitter",
+    "SkillCost": "50",
+    "SkillDescription": "Strike the enemy with the power of the heavens. Ignores defense."
+  },
+  {
+    "ID": 4,
+    "Name": "Featherblessed Blade",
+    "Size": 3,
+    "Rarity": "Rare",
+    "Value": 150,
+    "Attack": 5,
+    "Defense": 1,
+    "Skill": "Double Strike",
+    "SkillCost": "10",
+    "SkillDescription": "Strike the enemy twice in quick succession."
+  },
+  {
+    "ID": 5,
+    "Name": "Venomspike Maw",
+    "Size": 5,
+    "Rarity": "Epic",
+    "Value": 500,
+    "Attack": 12,
+    "Defense": 4,
+    "Skill": "Venomstrike",
+    "SkillCost": "20",
+    "SkillDescription": "Strike the enemy with venomous barbs. Does increased damage to enemies with HP greater than yours."
+  }
+
+]

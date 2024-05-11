@@ -7,8 +7,8 @@ public class Map {
     private int[][] playerCoordinate;
     public void generateMap() {
         Random rand = new Random();
-        int rows = rand.nextInt(8) + 5;
-        int columns = rand.nextInt(8) + 5;
+        int rows = rand.nextInt(7) + 7;
+        int columns = rand.nextInt(7) + 7;
         this.map = new char[rows][columns];
 
         // Add perimeter walls
@@ -41,9 +41,34 @@ public class Map {
         Tiles.createTiles(Main.readFile("./src/Tiles.json"));
         Map myMap = new Map();
         myMap.generateMap();
-        for (int i = 0; i < myMap.map.length; i++) {
-            for (int j = 0; j < myMap.map[i].length; j++) {
-                System.out.print(myMap.map[i][j] + " ");
+        myMap.displayMap();
+    }
+    public void displayMap() {
+        for (char[] chars : map) {
+            for (char aChar : chars) {
+                switch (aChar) {
+                    case 'W':
+                        System.out.print(ConsoleColors.RESET + aChar + " ");
+                        break;
+                    case 'O':
+                        System.out.print(ConsoleColors.WHITE + aChar + " ");
+                        break;
+                    case 'F':
+                        System.out.print(ConsoleColors.CYAN + aChar + " ");
+                        break;
+                    case 'L':
+                        System.out.print(ConsoleColors.YELLOW + aChar + " ");
+                        break;
+                    case 'E':
+                        System.out.print(ConsoleColors.GREEN + aChar + " ");
+                        break;
+                    case 'X':
+                        System.out.print(ConsoleColors.RED + aChar + " ");
+                        break;
+                    default:
+                        System.out.print(ConsoleColors.RESET + aChar + " ");
+                        break;
+                }
             }
             System.out.println(); // Move to the next line after printing each row
         }
