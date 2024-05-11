@@ -1,0 +1,22 @@
+[
+  {
+    "ID": 1,
+    "Name": "Fight Tile",
+    "Symbol": "F"
+  },
+  {
+    "ID": 2,
+    "Name": "Elite Fight Tile",
+    "Symbol": "F"
+  },
+  {
+    "ID": 3,
+    "Name": "Wall",
+    "Symbol": "W"
+  },
+  {
+    "ID": 4,
+    "Name": "Exit",
+    "Symbol": "E"
+  }
+]

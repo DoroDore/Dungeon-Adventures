@@ -1,5 +1,8 @@
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -136,5 +139,14 @@ public class Main {
             System.out.println("Please input a valid character.");
             return 'A';
         }
+    }
+    private static void setup() throws IOException, ParseException {
+        Tiles.createTiles(readFile("./src/Tiles.json"));
+    }
+    /**General Purpose for Reading Files*/
+    public static JSONArray readFile(String fileName) throws IOException, ParseException {
+        JSONParser parser = new JSONParser();
+        JSONArray data = (JSONArray) parser.parse(new FileReader(fileName));
+        return data;
     }
 }
