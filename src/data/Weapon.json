@@ -1,0 +1,80 @@
+[
+  {
+    "ID": 1,
+    "Name": "Iron Broadsword",
+    "Size": 3,
+    "Rarity": "Common",
+    "Value": 100,
+    "Attack": 5,
+    "Defense": 1,
+    "Skill": "None",
+    "SkillCost": 0,
+    "SkillDescription": "null",
+    "WeaponDescription": "A standard iron broadsword sharp enough for adventuring."
+  },
+  {
+    "ID": 2,
+    "Name": "Charred Staff",
+    "Size": 3,
+    "Rarity": "Common",
+    "Value": 70,
+    "Attack": 3,
+    "Defense": 1,
+    "Skill": "Fireball",
+    "SkillCost": 25,
+    "SkillDescription": "Send out a fireball dealing amplified damage.",
+    "WeaponDescription": "An oak wood staff a little charred from magic practice."
+  },
+  {
+    "ID": 3,
+    "Name": "Legendary Sword",
+    "Size": 5,
+    "Rarity": "Legendary",
+    "Value": 1000,
+    "Attack": 25,
+    "Defense": 10,
+    "Skill": "Sky Splitter",
+    "SkillCost": 50,
+    "SkillDescription": "Strike the enemy with the power of the heavens. Ignores defense.",
+    "WeaponDescritpion": "A legendary sword from the ancient times. Infused with the power of the heavens."
+  },
+  {
+    "ID": 4,
+    "Name": "Featherblessed Blade",
+    "Size": 3,
+    "Rarity": "Rare",
+    "Value": 150,
+    "Attack": 5,
+    "Defense": 1,
+    "Skill": "Double Strike",
+    "SkillCost": 10,
+    "SkillDescription": "Strike the enemy twice in quick succession.",
+    "WeaponDescription": "A simple longsword enchanted with magical lightness."
+  },
+  {
+    "ID": 5,
+    "Name": "Venomspike Maw",
+    "Size": 5,
+    "Rarity": "Epic",
+    "Value": 500,
+    "Attack": 12,
+    "Defense": 4,
+    "Skill": "Venomstrike",
+    "SkillCost": 20,
+    "SkillDescription": "Strike the enemy with venomous barbs. Does increased damage to enemies with HP greater than yours.",
+    "WeaponDescription": "A powerful club barbed with the poisonous teeth of a defeated Titan Devourer."
+  },
+  {
+    "ID": 6,
+    "Name": "Molten Marrowsplitter",
+    "Size": 5,
+    "Rarity": "Sacred",
+    "Value": 2000,
+    "Attack": 50,
+    "Defense": 8,
+    "Skill": "Mantle of Inferno",
+    "SkillCost": 20,
+    "SkillDescription": "Strike the enemy with a slash hotter than a million suns. Kills any enemy with 20% or less HP",
+    "WeaponDescription": "A polished obsidian blade with fiery veins that flow through it. The warmth of power and terror radiate from it."
+  }
+]

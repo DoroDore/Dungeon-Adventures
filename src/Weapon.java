@@ -1,16 +1,26 @@
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+
 public class Weapon extends Items{
-    private int attack;
-    private int defense;
-    private String skill;
-    private int skillCost;
-    private String skillDescription;
-    public Weapon(int id, String name, int size, String rarity, int value, int attack, int defense, String skill, int skillCost, String skillDescription) {
+    private int attack, defense, skillCost;
+    private String skill, skillDescription, weaponDescription;
+
+
+    public Weapon(int id, String name, int size, String rarity, int value, int attack, int defense, String skill,
+                  int skillCost, String skillDescription, String weaponDescription) {
         super(id, name, size, rarity, value);
         this.attack = attack;
         this.defense = defense;
         this.skill = skill;
         this.skillCost = skillCost;
         this.skillDescription = skillDescription;
+        this.weaponDescription = weaponDescription;
     }
     public void setAttack(int attack) {
         this.attack = attack;
@@ -27,6 +37,9 @@ public class Weapon extends Items{
     public void setSkillDescription(String skillDescription) {
         this.skillDescription = skillDescription;
     }
+    public void setWeaponDescription(String weaponDescription) {
+        this.weaponDescription = weaponDescription;
+    }
     public int getAttack() {
         return attack;
     }
@@ -41,5 +54,21 @@ public class Weapon extends Items{
     }
     public String getSkillDescription() {
         return skillDescription;
+    }
+    public String getWeaponDescription() {
+        return weaponDescription;
+    }
+    public void printStats() {
+        System.out.println("Name: " + getName());
+        System.out.println("ID: " + getID());
+        System.out.println("Size: " + getSize());
+        System.out.println("Rarity: " + getRarity());
+        System.out.println("Value: " + getValue());
+        System.out.println("Attack: " + getAttack());
+        System.out.println("Defense: " + getDefense());
+        System.out.println("Skill: " + getSkill());
+        System.out.println("Skill Cost: " + getSkillCost());
+        System.out.println("Skill Description: " + getSkillDescription());
+        System.out.println("Weapon Description: " + getWeaponDescription());
     }
 }
