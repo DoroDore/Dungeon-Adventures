@@ -31,7 +31,7 @@ public class Tiles {
     }
     private static JSONArray readFile() throws IOException, ParseException {
         JSONParser parser = new JSONParser();
-        JSONArray data = (JSONArray) parser.parse(new FileReader("./src/Tiles.json"));
+        JSONArray data = (JSONArray) parser.parse(new FileReader("./src/data/Tiles.json"));
         return data;
     }
     public static void createTiles(JSONArray data) {

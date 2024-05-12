@@ -38,7 +38,7 @@ public class Map {
                 this.map[row][column - 1] == 'W' && this.map[row][column + 1] == 'W';
     }
     public static void main(String[] args) throws IOException, ParseException {
-        Tiles.createTiles(Main.readFile("./src/Tiles.json"));
+        Tiles.createTiles(Main.readFile("./src/data/Tiles.json"));
         Map myMap = new Map();
         myMap.generateMap();
         myMap.displayMap();

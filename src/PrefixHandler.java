@@ -3,15 +3,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class PrefixHandler {
-    private Map<String, Method> prefixes;
+public interface PrefixHandler {
+    Map<String, Method> prefixes = new HashMap<>();
 
-    public PrefixHandler() {
-        prefixes = new HashMap<>();
-        initializePrefixes();
-    }
-
-    private void initializePrefixes() {
+    default void initializePrefixes() {
         try {
             prefixes.put("Look", this.getClass().getMethod("handleLook", String.class));
             prefixes.put("Move", this.getClass().getMethod("handleMove", String.class));
@@ -21,7 +16,7 @@ public class PrefixHandler {
         }
     }
 
-    public void handlePrefix(String input) {
+    default void handlePrefix(String input) {
         String[] parts = input.split(" ", 2);
         String prefix = parts[0];
         String argument = (parts.length > 1) ? parts[1] : "";
@@ -37,19 +32,11 @@ public class PrefixHandler {
             System.out.println("Unknown prefix: " + prefix);
         }
     }
-
-    public void handleLook(String argument) {
-        System.out.println("Looking " + argument);
-    }
-
-    public void handleMove(String argument) {
-        System.out.println("Moving " + argument);
-    }
-
     public static void main(String[] args) {
-        PrefixHandler prefixHandler = new PrefixHandler();
+        /*prefixHandler.initializePrefixes();
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter a command");
-        prefixHandler.handlePrefix(scanner.nextLine());
+        prefixHandler.handlePrefix(scanner.nextLine());*/
     }
 }
