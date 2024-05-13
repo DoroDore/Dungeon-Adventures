@@ -9,11 +9,12 @@ public class CombatPrefixHandler implements PrefixHandler {
         combatPrefixes = new HashMap<>();
         initializePrefixes();
     }
-
+    @Override
     public void initializePrefixes() {
         try {
             combatPrefixes.put("Attack", this.getClass().getMethod("handleAttack", String.class));
             combatPrefixes.put("Defend", this.getClass().getMethod("handleDefend", String.class));
+            combatPrefixes.put("Item", this.getClass().getMethod("handleItem", String.class));
             // Add more combat prefixes and their corresponding logic here
         } catch (NoSuchMethodException e){
             e.printStackTrace();
@@ -40,6 +41,9 @@ public class CombatPrefixHandler implements PrefixHandler {
     }
     public void handleDefend(String argument) {
         System.out.println("Defending " + argument);
+    }
+    public void handleItem(String argument) {
+        System.out.println("Iteming " + argument);
     }
 
     public static void main(String[] args) {

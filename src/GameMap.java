@@ -2,9 +2,9 @@ import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 import java.util.Random;
-public class Map {
+public class GameMap {
     private char[][] map;
-    private int[][] playerCoordinate;
+    private int[] playerCoordinate = new int[2];
     public void generateMap() {
         Random rand = new Random();
         int rows = rand.nextInt(7) + 7;
@@ -37,16 +37,22 @@ public class Map {
         return this.map[row - 1][column] == 'W' && this.map[row + 1][column] == 'W' &&
                 this.map[row][column - 1] == 'W' && this.map[row][column + 1] == 'W';
     }
+    private boolean isOnIllegalTile(int row, int column) {
+        return this.map[row][column] == 'W' || this.map[row][column] == 'X';
+    }
     public static void main(String[] args) throws IOException, ParseException {
         Tiles.createTiles(Main.readFile("./src/data/Tiles.json"));
-        Map myMap = new Map();
-        myMap.generateMap();
+        GameMap myMap = new GameMap();
+        myMap.setupMap();
         myMap.displayMap();
     }
     public void displayMap() {
         for (char[] chars : map) {
             for (char aChar : chars) {
                 switch (aChar) {
+                    case 'A':
+                        System.out.print(ConsoleColors.BOLD_RED + aChar + " ");
+                        break;
                     case 'W':
                         System.out.print(ConsoleColors.RESET + aChar + " ");
                         break;
@@ -72,5 +78,27 @@ public class Map {
             }
             System.out.println(); // Move to the next line after printing each row
         }
+    }
+    private void placePlayer() {
+        Random rand = new Random();
+        int x = rand.nextInt(this.map[0].length-2) + 1;
+        int y = rand.nextInt(this.map.length-2) + 1;
+        while (isOnIllegalTile(y, x)) {
+            x = rand.nextInt(this.map[0].length-2) +1 ;
+            y = rand.nextInt(this.map.length)-2 + 1;
+        }
+        playerCoordinate[0] = x;
+        playerCoordinate[1] = y;
+        map[y][x] = 'A';
+    }
+    public void setupMap() {
+        generateMap();
+        placePlayer();
+    }
+    public void playerMove(int x, int y) {
+        map[playerCoordinate[1]][playerCoordinate[0]] = 'O';
+        playerCoordinate[0] += x;
+        playerCoordinate[1] += y;
+        map[playerCoordinate[1]][playerCoordinate[0]] = 'A';
     }
 }
