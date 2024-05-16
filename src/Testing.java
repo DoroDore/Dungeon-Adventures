@@ -1,5 +1,6 @@
 import org.w3c.dom.ls.LSOutput;
 
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -8,11 +9,13 @@ public class Testing {
         GameMap map = new GameMap();
         MapPrefixHandler mapPrefixHandler = new MapPrefixHandler(map);
         map.setupMap();
-        map.displayMap();
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Please input a command");
-        mapPrefixHandler.handlePrefix(scanner.nextLine());
-        map.displayMap();
+        map.displayVisualMap();
+        while (true) {
+            System.out.println(Arrays.toString(map.getPlayerCoordinate()));
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Please input a command");
+            mapPrefixHandler.handlePrefix(scanner.nextLine());
+        }
     }
 
 

@@ -14,10 +14,11 @@ public class MapPrefixHandler implements PrefixHandler{
     @Override
     public void initializePrefixes() {
         try {
-            mapPrefixes.put("Look", this.getClass().getMethod("handleLook", String.class));
-            mapPrefixes.put("Move", this.getClass().getMethod("handleMove", String.class));
-            mapPrefixes.put("Item", this.getClass().getMethod("handleItem", String.class));
-            mapPrefixes.put("Bag", this.getClass().getMethod("handleBag", String.class));
+            mapPrefixes.put("look", this.getClass().getMethod("handleLook", String.class));
+            mapPrefixes.put("move", this.getClass().getMethod("handleMove", String.class));
+            mapPrefixes.put("item", this.getClass().getMethod("handleItem", String.class));
+            mapPrefixes.put("bag", this.getClass().getMethod("handleBag", String.class));
+            mapPrefixes.put("admin", this.getClass().getMethod("handleAdmin", String.class));
             // Add more combat prefixes and their corresponding logic here
         } catch (NoSuchMethodException e){
             e.printStackTrace();
@@ -26,8 +27,8 @@ public class MapPrefixHandler implements PrefixHandler{
     @Override
     public void handlePrefix(String input) {
         String[] parts = input.split(" ", 2);
-        String prefix = parts[0];
-        String argument = (parts.length > 1) ? parts[1] : "";
+        String prefix = parts[0].toLowerCase();
+        String argument = ((parts.length > 1) ? parts[1] : "").toLowerCase();
 
         Method prefixMethod = mapPrefixes.get(prefix);
         if (prefixMethod != null) {
@@ -41,21 +42,33 @@ public class MapPrefixHandler implements PrefixHandler{
         }
     }
     public void handleLook(String argument) {
-        System.out.println("Looking " + argument);
+        switch (argument) {
+            case "left":
+                gameMap.playerLook("left");
+                break;
+            case "right":
+                gameMap.playerLook("right");
+                break;
+            case "up":
+                gameMap.playerLook("up");
+                break;
+            case "down":
+                gameMap.playerLook("down");
+                break;
+        }
     }
     public void handleMove(String argument) {
-        System.out.println("Move command received");
         switch (argument) {
-            case "Left":
+            case "left":
                 gameMap.playerMove(-1,0);
                 break;
-            case "Right":
+            case "right":
                 gameMap.playerMove(1, 0);
                 break;
-            case "Up":
+            case "up":
                 gameMap.playerMove(0,-1);
                 break;
-            case "Down":
+            case "down":
                 gameMap.playerMove(0,1);
                 break;
         }
@@ -66,10 +79,22 @@ public class MapPrefixHandler implements PrefixHandler{
     public void handleBag(String argument) {
         System.out.println("Bagging " + argument);
     }
+    public void handleAdmin(String argument) {
+        System.out.println("ADMIN COMMAND");
+        switch (argument) {
+            case ("show map"):
+                gameMap.displayMap();
+                break;
+            case ("show vmap"):
+                gameMap.displayVisualMap();
+                break;
+        }
+    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         GameMap gameMap = new GameMap();
+        gameMap.setupMap();
         MapPrefixHandler mapPrefixHandler = new MapPrefixHandler(gameMap);
         System.out.println("Enter a command");
         mapPrefixHandler.handlePrefix(scanner.nextLine());
