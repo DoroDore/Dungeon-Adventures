@@ -1,0 +1,44 @@
+[
+  {
+    "ID": 0,
+    "Description": "You encounter a wandering trader.\nHe sits in the floor of the dungeon, huddled around a campfire",
+    "ChoiceDialogue": null,
+    "ParentID": -1
+  },
+  {
+    "ID": 1,
+    "Description": "Greet him",
+    "ChoiceDialogue": "Walking up to the man, you greet him. Upon hearing you, he looks up.\n\"How are you?\" He asks.",
+    "ParentID": 0
+  },
+  {
+    "ID": 2,
+    "Description": "Sit down next to him",
+    "ChoiceDialogue": "Walking over, you sit next to him. He pays you no attention.\nIn front of you, you feel the warmth of the campfire, hearing the crackling of the flames.",
+    "ParentID": 0
+  },
+  {
+    "ID": 3,
+    "Description": "Ignore him",
+    "ChoiceDialogue": "You pay him no attention and walk away.",
+    "ParentID": 0
+  },
+  {
+    "ID": 4,
+    "Description": "\"I'm Fine\"",
+    "ChoiceDialogue": "\"That's good to hear.\" He replies.\n\"Let us enjoy this campfire together.\"\nThe two of you sit together by the campfire",
+    "ParentID": 1
+  },
+  {
+    "ID": 5,
+    "Description": "\"What are you doing here?\"",
+    "ChoiceDialogue": "\"Nothing much,\" he replies. \"Catching a break maybe. The dungeon is ever changing.\"",
+    "ParentID": 1
+  },
+  {
+    "ID": 3,
+    "Description": "Ignore him",
+    "ChoiceDialogue": "You pay him no attention and walk away.",
+    "ParentID": 0
+  }
+]

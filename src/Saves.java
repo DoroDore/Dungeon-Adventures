@@ -50,7 +50,7 @@ public class Saves {
     }
     private static JSONArray readFile() throws IOException, ParseException {
         JSONParser parser = new JSONParser();
-        JSONArray data = (JSONArray) parser.parse(new FileReader("./src/Save.json"));
+        JSONArray data = (JSONArray) parser.parse(new FileReader("./src/data/Save.json"));
         return data;
     }
     private static void loadData(JSONArray data, int fileNo) { //Note to self, I need to find a way for the player to start new saves in unused save slots

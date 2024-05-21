@@ -131,10 +131,12 @@ public class GameMap {
         map[y][x] = 'A';
         visualMap[y][x] = 'A';
     }
+    /**Used to set up the map and create the coordinates*/
     public void setupMap() {
         generateMap();
         placePlayer();
     }
+    /**Main method used for player movement, handles it using coordinate system, while also differentiating between different tiles*/
     public void playerMove(int x, int y) {
         if (playerCoordinate == null || map == null || map[0] == null ||
                 playerCoordinate[0] + x >= map[0].length || playerCoordinate[1] + y >= map.length ||
@@ -143,8 +145,10 @@ public class GameMap {
         }
         else {
             if (map[playerCoordinate[1]+y][playerCoordinate[0]+x] != 'W') {
-                map[playerCoordinate[1]][playerCoordinate[0]] = 'O';
-                visualMap[playerCoordinate[1]][playerCoordinate[0]] = 'O';
+                if (map[playerCoordinate[1]][playerCoordinate[0]] != 'X') {
+                    map[playerCoordinate[1]][playerCoordinate[0]] = 'O';
+                    visualMap[playerCoordinate[1]][playerCoordinate[0]] = 'O';
+                }
                 playerCoordinate[0] += x;
                 playerCoordinate[1] += y;
                 if (map[playerCoordinate[1]][playerCoordinate[0]] == 'X') {
@@ -160,6 +164,9 @@ public class GameMap {
                     }
                     if (input.equalsIgnoreCase("yes")) {
                         System.out.println("Moving to next floor...");
+                        this.setupMap();
+                        this.displayVisualMap();
+                        return;
                     }
                     else {
                         System.out.println("You didn't move to the next floor.");
@@ -176,7 +183,6 @@ public class GameMap {
                 System.out.println("Illegal Move Detected");
             }
         }
-
     }
     public void playerLook(String direction) {
         int x = 0, y = 0;

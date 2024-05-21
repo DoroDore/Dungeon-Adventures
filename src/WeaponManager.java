@@ -46,7 +46,7 @@ public class WeaponManager {
         colorMapping.put("Legendary", ConsoleColors.YELLOW); // Yellow
         colorMapping.put("Sacred", ConsoleColors.RED);    // Red
         createWeapons(readFile("./src/data/Weapon.json"));
-        Weapon weapon = weaponMap.get(5);
+        Weapon weapon = weaponMap.get(4);
         weapon.printStats();
     }
 }

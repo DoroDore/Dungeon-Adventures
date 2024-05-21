@@ -3,8 +3,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 public class MapPrefixHandler implements PrefixHandler{
-    private Map<String, Method> mapPrefixes;
-    private GameMap gameMap;
+    private final Map<String, Method> mapPrefixes;
+    private final GameMap gameMap;
     public MapPrefixHandler(GameMap gameMap) {
         mapPrefixes = new HashMap<>();
         this.gameMap = gameMap;
