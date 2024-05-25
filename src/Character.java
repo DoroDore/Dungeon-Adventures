@@ -4,12 +4,15 @@ public class Character {
     public static int gPlayerDEF;
     public static int gPlayerHP;
     public static int gPlayerMana;
+    public static Weapon weapon;
+    public static Bag bag;
     public static void loadData() {
         gPlayerName = Saves.getFileName();
         gPlayerATK = Saves.getATK();
         gPlayerDEF = Saves.getDEF();
         gPlayerHP = Saves.getHP();
         gPlayerMana = Saves.getMana();
+        bag = new Bag(10);
     }
     public static String getPlayerName() {
         return gPlayerName;

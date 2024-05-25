@@ -5,15 +5,17 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Testing {
     public static void main(String[] args) {
-        String jsonFilePath = "./src/data/events/wanderingTrader.json";
-        File jsonFile = new File(jsonFilePath);
-        EventTree eventTree = new EventTree();
-        eventTree.buildTreeFromJSON(jsonFile);
-        Node rootNode = eventTree.getRootNode();
+        testRandomEvent();
+    }
+    public static void testRandomEvent() {
+        Random rand = new Random();
+        EventManager.loadEvents();
+        EventTree eventTree = EventManager.getEventTree(rand.nextInt(EventManager.getEventMapSize())+1);
         eventTree.runInteraction();
     }
     public static void testDisplayTree() {
