@@ -1,11 +1,30 @@
 import org.w3c.dom.ls.LSOutput;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.Scanner;
 
 public class Testing {
     public static void main(String[] args) {
+        String jsonFilePath = "./src/data/events/wanderingTrader.json";
+        File jsonFile = new File(jsonFilePath);
+        EventTree eventTree = new EventTree();
+        eventTree.buildTreeFromJSON(jsonFile);
+        Node rootNode = eventTree.getRootNode();
+        eventTree.runInteraction();
+    }
+    public static void testDisplayTree() {
+        String jsonFilePath = "./src/data/events/wanderingTrader.json";
+        File jsonFile = new File(jsonFilePath);
+        EventTree eventTree = new EventTree();
+        eventTree.buildTreeFromJSON(jsonFile);
+        Node rootNode = eventTree.getRootNode();
+        eventTree.printEventTree(rootNode);
+    }
+    public static void testMovement() {
         GameMap map = new GameMap();
         MapPrefixHandler mapPrefixHandler = new MapPrefixHandler(map);
         map.setupMap();
@@ -17,6 +36,6 @@ public class Testing {
             mapPrefixHandler.handlePrefix(scanner.nextLine());
         }
     }
-
-
 }
+
+

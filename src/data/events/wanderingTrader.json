@@ -36,9 +36,39 @@
     "ParentID": 1
   },
   {
-    "ID": 3,
-    "Description": "Ignore him",
-    "ChoiceDialogue": "You pay him no attention and walk away.",
-    "ParentID": 0
+    "ID": 6,
+    "Description": "Take a nap",
+    "ChoiceDialogue": "Listening to the crackling of the flames, you suddenly feel immensely tired. Maybe it's time to take a nap.",
+    "ParentID": 2
+  },
+  {
+    "ID": 7,
+    "Description": "Improve your weapon",
+    "ChoiceDialogue": "You spend your time at the campfire tinkering with your weapon.",
+    "ParentID": 2
+  },
+  {
+    "ID": 8,
+    "Description": "\"I agree. Mind if I sit here?\"",
+    "ChoiceDialogue": "He shakes his head. No I don't. In fact, I'd appreciate it.\nBeing in the dungeon gets lonely sometimes.",
+    "ParentID": 5
+  },
+  {
+    "ID": 9,
+    "Description": "Pay him no attention",
+    "ChoiceDialogue": "You choose to pay him no attention. He doesn't seem to care either.",
+    "ParentID": 5
+  },
+  {
+    "ID": 10,
+    "Description": "Sit down at the campfire.",
+    "ChoiceDialogue": "You sit down at the campfire.",
+    "ParentID": 9
+  },
+  {
+    "ID": 11,
+    "Description": "Leave",
+    "ChoiceDialogue": "Turning away, you leave the campsite.",
+    "ParentID": 9
   }
 ]
