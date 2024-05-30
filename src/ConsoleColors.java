@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class ConsoleColors {
     // Color constants
     public static final String RESET = "\u001B[0m";
@@ -27,7 +30,20 @@ public class ConsoleColors {
     public static final String BOLD_PURPLE = "\u001B[35;1m";
     public static final String BOLD_CYAN = "\u001B[36;1m";
     public static final String BOLD_WHITE = "\u001B[37;1m";
-    //Custom Colors
+    // Custom Colors
+
+    // Color mapping for rarity
+    public static Map<String, String> colorMapping;
+
+    static {
+        colorMapping = new HashMap<>();
+        colorMapping.put("Common", RESET);     // Default color
+        colorMapping.put("Rare", BLUE);        // Blue
+        colorMapping.put("Epic", PURPLE);      // Purple
+        colorMapping.put("Legendary", YELLOW); // Yellow
+        colorMapping.put("Sacred", RED);       // Red
+    }
+
     public static void main(String[] args) {
         System.out.println(BLACK + "This is black text." + RESET);
         System.out.println(RED + "This is red text." + RESET);

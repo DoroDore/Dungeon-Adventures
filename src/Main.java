@@ -28,11 +28,10 @@ public class Main {
                 if (response == 'Y') {
                     lock = false;
                     Text.stallReadFile("./src/text/enterDungeonMessage.txt");
-                    gameMap.displayVisualMap();
+
+                    Character.bag.addItem(Character.weapon);
                     while (Character.getPlayerHP() > 0) {
-                        System.out.println(Arrays.toString(gameMap.getPlayerCoordinate()));
-                        System.out.println("Please input a command");
-                        mapPrefixHandler.handlePrefix(scanner.nextLine());
+                        movementInterface(scanner);
                     }
 
                 }
@@ -49,6 +48,15 @@ public class Main {
             }
         }
     }
+
+    private static void movementInterface(Scanner scanner) {
+        gameMap.displayVisualMap();
+        System.out.println(Arrays.toString(gameMap.getPlayerCoordinate()));
+        Character.displayPlayerStats();
+        System.out.println(ConsoleColors.BRIGHT_YELLOW + "Please input a command" + ConsoleColors.RESET);
+        mapPrefixHandler.handlePrefix(scanner.nextLine());
+    }
+    /**Sets up all the crucial hashmaps and variables that are necessary for the game to function*/
     private static void setup() throws IOException, ParseException {
         gameMap = new GameMap();
         mapPrefixHandler = new MapPrefixHandler(gameMap);
@@ -133,7 +141,7 @@ public class Main {
         boolean validInput = false;
         char choice = 'A'; // Default value
         while (!validInput) {
-            String input = scanner.next();
+            String input = scanner.nextLine();
             if (input.equalsIgnoreCase("Y")) {
                 choice = 'Y';
                 validInput = true;
@@ -149,17 +157,17 @@ public class Main {
     }
     private static char menuOptions(Scanner scanner) {
         Text.readFile("./src/text/mainMenu.txt");
-        String input = scanner.next();
-        if (input.equalsIgnoreCase("P")) {
+        String input = scanner.nextLine().toUpperCase();
+        if (input.equals("P")) {
             return 'P';
         }
-        else if (input.equalsIgnoreCase("S")) {
+        else if (input.equals("S")) {
             return 'S';
         }
-        else if (input.equalsIgnoreCase("I")) {
+        else if (input.equals("I")) {
             return 'I';
         }
-        else if (input.equalsIgnoreCase("E")) {
+        else if (input.equals("E")) {
             return 'E';
         }
         else {

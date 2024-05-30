@@ -1,4 +1,5 @@
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -56,6 +57,9 @@ public class MapPrefixHandler implements PrefixHandler{
             case "down":
                 gameMap.playerLook("down");
                 break;
+            default:
+                System.out.println("Illegal command detected. Please try again or get help with the \"Help\" command.");
+                break;
         }
     }
     public void handleMove(String argument) {
@@ -72,13 +76,65 @@ public class MapPrefixHandler implements PrefixHandler{
             case "down":
                 gameMap.playerMove(0,1);
                 break;
+            default:
+                System.out.println("Illegal command detected. Please try again or get help with the \"Help\" command.");
+                break;
         }
     }
     public void handleItem(String argument) {
         System.out.println("Iteming " + argument);
     }
     public void handleBag(String argument) {
-        System.out.println("Bagging " + argument);
+        Scanner scanner = new Scanner(System.in);
+        switch (argument) {
+            case "contents":
+                Character.bag.listBagContents();
+                System.out.println("Input anything to continue...");
+                scanner.nextLine();
+                break;
+            case "equip weapon":
+                System.out.println("Which weapon would you like to equip?");
+                System.out.println("---------------------------");
+                Character.bag.listBagWeapons();
+                ArrayList<Weapon> weapons = Character.bag.bagWeaponsArrayList();
+                int chosenWeaponIndex;
+                do {
+                    System.out.print("Enter the index of your chosen weapon: ");
+                    chosenWeaponIndex = scanner.nextInt();
+                    scanner.nextLine();
+                } while (chosenWeaponIndex < 1 || chosenWeaponIndex > weapons.size());
+                Character.weapon = weapons.get(chosenWeaponIndex - 1);
+                System.out.println("You have equipped the " + Character.weapon.getName() + "!");
+                System.out.println("Input anything to continue...");
+                scanner.nextLine();
+                break;
+            case "remove item":
+                int discardedItemIndex;
+                do {
+                    System.out.println("What would you like to discard?");
+                    Character.bag.listBagContents();
+                    System.out.println("Input anything else to exit.");
+                    String input = scanner.nextLine();
+                    try {
+                        discardedItemIndex = Integer.parseInt(input);
+                        if (discardedItemIndex >= 1) {
+                            // Valid item index, remove the item
+                            Items discardedItem = Character.bag.getItem(discardedItemIndex - 1);
+                            Character.bag.removeItem(discardedItemIndex - 1);
+                            System.out.println("You have discarded: " + discardedItem.getName());
+                        } else {
+                            System.out.println("Invalid item index. Please try again.");
+                        }
+                    } catch (NumberFormatException e) {
+                        // User input is not a number, exit the loop
+                        break;
+                    }
+                } while (true);
+                break;
+            default:
+                System.out.println("Illegal command detected. Please try again or get help with the \"Help\" command.");
+                break;
+        }
     }
     public void handleHelp(String argument) {
         switch (argument) {
@@ -107,6 +163,12 @@ public class MapPrefixHandler implements PrefixHandler{
                 break;
             case ("show vmap"):
                 gameMap.displayVisualMap();
+                break;
+            case ("get loot"):
+                Scanner scanner = new Scanner(System.in);
+                System.out.println("How much loot do you want?");
+                int choice = scanner.nextInt();
+                LootManager.plainLoot(choice);
                 break;
         }
     }

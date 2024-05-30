@@ -1,3 +1,4 @@
+import org.json.simple.parser.ParseException;
 import org.w3c.dom.ls.LSOutput;
 
 import java.io.File;
@@ -9,8 +10,13 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Testing {
-    public static void main(String[] args) {
-        testMovement();
+    public static void main(String[] args) throws IOException, ParseException {
+        testRewardSystem();
+    }
+
+    public static void testRewardSystem() throws IOException, ParseException {
+        WeaponManager.createWeapons(Main.readFile("./src/data/Weapon.json"));
+        LootManager.plainLoot(5);
     }
     public static void testRandomEvent() {
         Random rand = new Random();

@@ -1,3 +1,7 @@
+import java.io.Console;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Items {
     private int id;
     private String name;
@@ -5,8 +9,9 @@ public class Items {
     private String rarity;
     private int value;
     public Items(int id, String name, int size, String rarity, int value) {
+        String color = ConsoleColors.colorMapping.getOrDefault(rarity, ConsoleColors.CYAN); // Cyan for any other rarity
+        this.name = color + name + ConsoleColors.RESET; // Reset color after the name
         this.id = id;
-        this.name = name;
         this.size = size;
         this.rarity = rarity;
         this.value = value;

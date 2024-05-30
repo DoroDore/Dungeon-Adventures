@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class Bag {
     private int bagSpace;
@@ -15,9 +17,37 @@ public class Bag {
         }
         return false;
     }
-
-    public boolean removeItem(Items item) {
-        return items.remove(item);
+    public void listBagContents() {
+        int counter = 1;
+        for (Items item : items) {
+            System.out.println("[" + counter + "] Name: " + item.getName() + ", Size: " + item.getSize());
+            counter++;
+        }
+        Scanner scanner = new Scanner(System.in);
+    }
+    public void listBagWeapons() {
+        int counter = 1;
+        for (Items item : items) {
+            if (item instanceof Weapon weapon) { // Check if the item is an instance of Weapon
+                System.out.println("[" + counter + "] Name: " + weapon.getName() + ", Size: " + weapon.getSize());
+                counter++;
+            }
+        }
+    }
+    public ArrayList<Weapon> bagWeaponsArrayList() {
+        ArrayList<Weapon> weapons = new ArrayList<>();
+        for (Items item : items) {
+            if (item instanceof Weapon weapon) {
+                weapons.add(weapon);
+            }
+        }
+        return weapons;
+    }
+    public Items getItem(int index) {
+        return items.get(index);
+    }
+    public void removeItem(int index) {
+        items.remove(index);
     }
 
     public int getAvailableSpace() {
