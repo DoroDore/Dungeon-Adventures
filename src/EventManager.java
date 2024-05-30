@@ -3,6 +3,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class EventManager {
     private static final Map<Integer, EventTree> eventMap = new HashMap<>();
@@ -28,5 +29,10 @@ public class EventManager {
     }
     public static int getEventMapSize() {
         return eventMap.size();
+    }
+    public static void runRandomEvent() {
+        Random rand = new Random();
+        EventTree eventTree = eventMap.get(rand.nextInt(EventManager.getEventMapSize())+1);
+        eventTree.runInteraction();
     }
 }

@@ -4,32 +4,44 @@ import org.json.simple.parser.ParseException;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
+    static GameMap gameMap;
+    static MapPrefixHandler mapPrefixHandler;
     public static void main(String[] args) throws IOException, ParseException {
-        Saves.pickSave();
         Scanner scanner = new Scanner(System.in);
-        boolean lock = true;
+        setup(); //Very important, used to set up the weapon map and load in the events.
+        Saves.pickSave(); //Used to select a save, still a WIP though, I might make it so that the player can get different weapons in the future.
+        boolean lock = true; //Note to self: Maybe this is bad practice
         while (lock) {
-            char response = menuOptions();
+            char response = menuOptions(scanner);
             if (response == 'P') {
                 Character.loadData();
-                Saves.checkSave();
+                Character.displayPlayerStats();
                 System.out.println("This is the character you will play as. Are you sure?");
                 System.out.println("[Y] Yes, [N] No");
-                response = yesNo();
+                response = yesNo(scanner);
                 if (response == 'Y') {
                     lock = false;
-                    System.out.println("Temporary Start Game");
+                    Text.stallReadFile("./src/text/enterDungeonMessage.txt");
+                    gameMap.displayVisualMap();
+                    while (Character.getPlayerHP() > 0) {
+                        System.out.println(Arrays.toString(gameMap.getPlayerCoordinate()));
+                        System.out.println("Please input a command");
+                        mapPrefixHandler.handlePrefix(scanner.nextLine());
+                    }
+
                 }
             }
             else if (response == 'S') {
-                handleSave();
+                handleSave(scanner);
             }
             else if (response == 'I') {
-                handleInstructions();
+                handleInstructions(scanner);
             }
             else if (response == 'E') {
                 System.out.println("Thanks for playing!");
@@ -38,23 +50,26 @@ public class Main {
         }
     }
     private static void setup() throws IOException, ParseException {
+        gameMap = new GameMap();
+        mapPrefixHandler = new MapPrefixHandler(gameMap);
+        gameMap.setupMap();
         EventManager.loadEvents();
         WeaponManager.createWeapons(readFile("./src/data/Weapon.json"));
 
     }
     /**Handles all the code for viewing and accessing saves.*/
-    private static void handleSave() throws IOException, ParseException {
-        Scanner scanner = new Scanner(System.in);
+    private static void handleSave(Scanner scanner) throws IOException, ParseException {
         char response;
         System.out.println("Here are your current stats!\n");
         Saves.checkSave();
         System.out.println("\n[W] Wipe Save");
         System.out.println("Press Anything Else to Continue...");
+        scanner.nextLine();
         String input = scanner.nextLine();
         if (input.equalsIgnoreCase("W")) {
             System.out.println("Do you want to wipe this save?");
             System.out.println("[Y] Yes, [N] No");
-            response = yesNo();
+            response = yesNo(scanner);
             if (response == 'Y') {
                 System.out.println("To delete your save, type in full caps \"DELETE\"");
                 System.out.println("Typing anything else will cancel this process");
@@ -79,15 +94,14 @@ public class Main {
                 stall();
             }
         }
-        scanner.close();
     }
     /**Handles all the code for displaying various instructions.*/
-    private static void handleInstructions() {
-        Scanner scanner = new Scanner(System.in);
+    private static void handleInstructions(Scanner scanner) {
         boolean subLock = true;
         while (subLock) {
             System.out.println("Welcome to the tutorial page! Input any of the following words to view tutorials");
             System.out.println("Tutorial\nPrefixes\nTiles\nItems\nEXIT");
+            scanner.nextLine();
             String responseString = scanner.nextLine().toLowerCase();
             switch (responseString) {
                 case "tutorial":
@@ -110,17 +124,14 @@ public class Main {
                     break;
             }
         }
-        scanner.close();
     }
     private static void stall() {
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
     }
-    private static char yesNo() {
-        Scanner scanner = new Scanner(System.in);
+    private static char yesNo(Scanner scanner) {
         boolean validInput = false;
         char choice = 'A'; // Default value
-
         while (!validInput) {
             String input = scanner.next();
             if (input.equalsIgnoreCase("Y")) {
@@ -136,8 +147,7 @@ public class Main {
 
         return choice;
     }
-    private static char menuOptions() {
-        Scanner scanner = new Scanner(System.in);
+    private static char menuOptions(Scanner scanner) {
         Text.readFile("./src/text/mainMenu.txt");
         String input = scanner.next();
         if (input.equalsIgnoreCase("P")) {

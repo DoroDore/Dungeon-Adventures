@@ -1,0 +1,5 @@
+The movement phase is the time when the user is free to explore the map of the dungeon.
+This phase is exited once the player lands on any tile other than an empty tile (O).
+To find more specific help on different commands, input "help", follow by any of the following arguments:
+Look, Move, Bag, or Item.
+Remember that all commands are not case-sensitive and ignore casing.

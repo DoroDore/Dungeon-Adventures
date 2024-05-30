@@ -1,39 +1,41 @@
 public class Character {
-    public static String gPlayerName;
-    public static int gPlayerATK;
-    public static int gPlayerDEF;
-    public static int gPlayerHP;
-    public static int gPlayerMana;
+    public static String playerName;
+    public static int playerATK;
+    public static int playerDEF;
+    public static int playerHP;
+    public static int playerMana;
     public static Weapon weapon;
     public static Bag bag;
     public static void loadData() {
-        gPlayerName = Saves.getFileName();
-        gPlayerATK = Saves.getATK();
-        gPlayerDEF = Saves.getDEF();
-        gPlayerHP = Saves.getHP();
-        gPlayerMana = Saves.getMana();
+        playerName = Saves.getFileName();
+        playerATK = Saves.getATK();
+        playerDEF = Saves.getDEF();
+        playerHP = Saves.getHP();
+        playerMana = Saves.getMana();
+        weapon = WeaponManager.getWeaponMap().get(1);
         bag = new Bag(10);
     }
     public static String getPlayerName() {
-        return gPlayerName;
+        return playerName;
     }
     public static int getPlayerATK() {
-        return gPlayerATK;
+        return playerATK;
     }
     public static int getPlayerDEF() {
-        return gPlayerDEF;
+        return playerDEF;
     }
     public static int getPlayerHP() {
-        return gPlayerHP;
+        return playerHP;
     }
     public static int getPlayerMana() {
-        return gPlayerMana;
+        return playerMana;
     }
     public static void playerDamage(int damageReceived) {
-        gPlayerHP -= (damageReceived - gPlayerDEF);
+        playerHP -= (damageReceived - playerDEF);
     }
     public static void displayPlayerStats() {
-        System.out.println("Character Name: " + gPlayerName + "\tCurrent HP: " + gPlayerHP);
-        System.out.println("ATK: " + gPlayerATK + "\tDEF: " + gPlayerDEF + "\tMana: " + gPlayerMana);
+        System.out.println("Character Name: " + playerName + "\tCurrent HP: " + playerHP);
+        System.out.println("ATK: " + playerATK + "\tDEF: " + playerDEF + "\tMana: " + playerMana);
+        System.out.println("Weapon: " + weapon.getName() + "\t Bag Space: " + bag.getAvailableSpace());
     }
 }

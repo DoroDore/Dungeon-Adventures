@@ -1,0 +1,3 @@
+The "Look" command is very simple, and it's main function is to provide you with information about the map.
+The Look command follows the structure "Look [Direction]", where direction is either left, right, up, or down
+Once a command is inputted, it will reveal the tile in the specified direction, as well as all the adjacent tiles to that.

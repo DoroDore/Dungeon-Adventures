@@ -38,6 +38,9 @@ public class WeaponManager {
         JSONArray data = (JSONArray) parser.parse(new FileReader(fileName));
         return data;
     }
+    public static Map<Integer, Weapon> getWeaponMap() {
+        return weaponMap;
+    }
 
     public static void main(String[] args) throws IOException, ParseException {
         colorMapping.put("Common", ConsoleColors.RESET);     // Default color

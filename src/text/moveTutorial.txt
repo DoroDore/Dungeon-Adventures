@@ -1,0 +1,5 @@
+The "Move" command is very simple, and it's main function is to allow you to traverse across the map.
+The Move command follows the structure "Move [Direction]", where direction is either left, right, up, or down
+Once a command is inputted, the player will be moved onto the tile, even if it is not revealed.
+If it is any other tile other than an empty tile, represented by 'O', the respective event will commence.
+Additionally, if you are obstructed, or unable to move to that tile for whatever reason, there will be an "Illegal Move Detected" message.

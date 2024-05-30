@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Testing {
     public static void main(String[] args) {
-        testRandomEvent();
+        testMovement();
     }
     public static void testRandomEvent() {
         Random rand = new Random();

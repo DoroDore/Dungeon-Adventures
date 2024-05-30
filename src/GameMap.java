@@ -142,44 +142,43 @@ public class GameMap {
                 playerCoordinate[0] + x >= map[0].length || playerCoordinate[1] + y >= map.length ||
                 playerCoordinate[0] + x < 0 || playerCoordinate[1] + y < 0) {
             System.out.println("Illegal Move Detected");
-        }
-        else {
-            if (map[playerCoordinate[1]+y][playerCoordinate[0]+x] != 'W') {
+        } else {
+            if (map[playerCoordinate[1] + y][playerCoordinate[0] + x] != 'W') {
                 if (map[playerCoordinate[1]][playerCoordinate[0]] != 'X') {
                     map[playerCoordinate[1]][playerCoordinate[0]] = 'O';
                     visualMap[playerCoordinate[1]][playerCoordinate[0]] = 'O';
                 }
                 playerCoordinate[0] += x;
                 playerCoordinate[1] += y;
-                if (map[playerCoordinate[1]][playerCoordinate[0]] == 'X') {
-                    Scanner scanner = new Scanner(System.in);
-                    String input = "";
-                    while (!input.equalsIgnoreCase("yes") && !input.equalsIgnoreCase("no")) {
-                        System.out.println("You have landed on the escape tile. Would you like to travel to the next floor?");
-                        System.out.println("Yes/No");
-                        input = scanner.nextLine().toLowerCase();
-                        if (!input.equalsIgnoreCase("yes") && !input.equalsIgnoreCase("no")) {
-                            System.out.println("Please input a valid option.");
+                switch (map[playerCoordinate[1]][playerCoordinate[0]]) {
+                    case 'X':
+                        Scanner scanner = new Scanner(System.in);
+                        String input = "";
+                        while (!input.equalsIgnoreCase("yes") && !input.equalsIgnoreCase("no")) {
+                            System.out.println("You have landed on the escape tile. Would you like to travel to the next floor?");
+                            System.out.println("Yes/No");
+                            input = scanner.nextLine().toLowerCase();
+                            if (!input.equalsIgnoreCase("yes") && !input.equalsIgnoreCase("no")) {
+                                System.out.println("Please input a valid option.");
+                            }
                         }
-                    }
-                    if (input.equalsIgnoreCase("yes")) {
-                        System.out.println("Moving to next floor...");
-                        this.setupMap();
-                        this.displayVisualMap();
-                        return;
-                    }
-                    else {
-                        System.out.println("You didn't move to the next floor.");
-                    }
+                        if (input.equalsIgnoreCase("yes")) {
+                            System.out.println("Moving to the next floor...");
+                            this.setupMap();
+                            this.displayVisualMap();
+                            return;
+                        } else {
+                            System.out.println("You didn't move to the next floor.");
+                        }
+                        break;
+                    case 'E':
+                        EventManager.runRandomEvent();
+
                 }
-                else {
-                    map[playerCoordinate[1]][playerCoordinate[0]] = 'A';
-                    visualMap[playerCoordinate[1]][playerCoordinate[0]] = 'A';
-                }
-                revealCluster(playerCoordinate[0],playerCoordinate[1]);
+                revealCluster(playerCoordinate[0], playerCoordinate[1]);
+                visualMap[playerCoordinate[1]][playerCoordinate[0]] = 'A'; // Update player's symbol after each move
                 displayVisualMap();
-            }
-            else {
+            } else {
                 System.out.println("Illegal Move Detected");
             }
         }

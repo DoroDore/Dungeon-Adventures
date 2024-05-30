@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Text {
     public static void readFile(String fileName) {
-        System.out.println("Reading file: " + fileName);
+        //System.out.println("Reading file: " + fileName);
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -17,7 +17,7 @@ public class Text {
         }
     }
     public static void stallReadFile(String fileName) {
-        System.out.println("Reading file: " + fileName);
+        //System.out.println("Reading file: " + fileName);
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             while ((line = reader.readLine()) != null) {

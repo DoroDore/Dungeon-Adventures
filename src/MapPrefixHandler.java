@@ -18,6 +18,7 @@ public class MapPrefixHandler implements PrefixHandler{
             mapPrefixes.put("move", this.getClass().getMethod("handleMove", String.class));
             mapPrefixes.put("item", this.getClass().getMethod("handleItem", String.class));
             mapPrefixes.put("bag", this.getClass().getMethod("handleBag", String.class));
+            mapPrefixes.put("help", this.getClass().getMethod("handleHelp", String.class));
             mapPrefixes.put("admin", this.getClass().getMethod("handleAdmin", String.class));
             // Add more combat prefixes and their corresponding logic here
         } catch (NoSuchMethodException e){
@@ -78,6 +79,25 @@ public class MapPrefixHandler implements PrefixHandler{
     }
     public void handleBag(String argument) {
         System.out.println("Bagging " + argument);
+    }
+    public void handleHelp(String argument) {
+        switch (argument) {
+            case "look":
+                Text.stallReadFile("./src/text/lookTutorial.txt");
+                break;
+            case "move":
+                Text.stallReadFile("./src/text/moveTutorial.txt");
+                break;
+            case "item":
+                Text.stallReadFile("./src/text/itemTutorial.txt");
+                break;
+            case "bag":
+                Text.stallReadFile("./src/text/bagTutorial.txt");
+                break;
+            default:
+                Text.stallReadFile("./src/text/movementHelpTutorial.txt");
+                break;
+        }
     }
     public void handleAdmin(String argument) {
         System.out.println("ADMIN COMMAND");
