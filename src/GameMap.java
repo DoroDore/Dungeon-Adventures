@@ -173,11 +173,15 @@ public class GameMap {
                         break;
                     case 'E':
                         EventManager.runRandomEvent();
+                        break;
+                    case 'L':
+                        Random rand = new Random();
+                        LootManager.plainLoot(rand.nextInt(5)+1);
+                        break;
 
                 }
                 revealCluster(playerCoordinate[0], playerCoordinate[1]);
                 visualMap[playerCoordinate[1]][playerCoordinate[0]] = 'A'; // Update player's symbol after each move
-                displayVisualMap();
             } else {
                 System.out.println("Illegal Move Detected");
             }

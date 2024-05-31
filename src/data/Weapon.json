@@ -76,5 +76,44 @@
     "SkillCost": 20,
     "SkillDescription": "Strike the enemy with a slash hotter than a million suns. Kills any enemy with 20% or less HP",
     "WeaponDescription": "A polished obsidian blade with fiery veins that flow through it. The warmth of power and terror radiate from it."
+  },
+  {
+    "ID": 7,
+    "Name": "The Smokesword",
+    "Size": 4,
+    "Rarity": "Epic",
+    "Value": 690,
+    "Attack": 10,
+    "Defense": 1,
+    "Skill": "Smokescreen",
+    "SkillCost": 10,
+    "SkillDescription": "Creates an obscuring cloud of smoke that reduces the enemy's accuracy.",
+    "WeaponDescription": "A blade that is constantly coated in a hazardous black smoke. Enemies who breath the smoke seem to miss their attacks constantly."
+  },
+  {
+    "ID": 8,
+    "Name": "Weapon@5d099f62",
+    "Size": 1,
+    "Rarity": "Common",
+    "Value": 111,
+    "Attack": 15,
+    "Defense": -5,
+    "Skill": "Glitch",
+    "SkillCost": 1,
+    "SkillDescription": "Glitch out the enemy, or maybe yourself",
+    "WeaponDescription": "Hmm something's wrong"
+  },
+  {
+    "ID": 9,
+    "Name": "Cursed Bramble",
+    "Size": 1,
+    "Rarity": "Rare",
+    "Value": 20,
+    "Attack": 6,
+    "Defense": -3,
+    "Skill": "Omen Vines",
+    "SkillCost": 10,
+    "SkillDescription": "Strike the enemy, bypassing some defense.",
+    "WeaponDescription": "A bramble that seems to exude an aura of evil."
   }
 ]

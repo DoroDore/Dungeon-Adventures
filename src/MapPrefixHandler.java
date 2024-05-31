@@ -93,20 +93,7 @@ public class MapPrefixHandler implements PrefixHandler{
                 scanner.nextLine();
                 break;
             case "equip weapon":
-                System.out.println("Which weapon would you like to equip?");
-                System.out.println("---------------------------");
-                Character.bag.listBagWeapons();
-                ArrayList<Weapon> weapons = Character.bag.bagWeaponsArrayList();
-                int chosenWeaponIndex;
-                do {
-                    System.out.print("Enter the index of your chosen weapon: ");
-                    chosenWeaponIndex = scanner.nextInt();
-                    scanner.nextLine();
-                } while (chosenWeaponIndex < 1 || chosenWeaponIndex > weapons.size());
-                Character.weapon = weapons.get(chosenWeaponIndex - 1);
-                System.out.println("You have equipped the " + Character.weapon.getName() + "!");
-                System.out.println("Input anything to continue...");
-                scanner.nextLine();
+                Character.bag.switchWeapon();
                 break;
             case "remove item":
                 int discardedItemIndex;
@@ -170,6 +157,8 @@ public class MapPrefixHandler implements PrefixHandler{
                 int choice = scanner.nextInt();
                 LootManager.plainLoot(choice);
                 break;
+            case ("get weapon"):
+                System.out.println(Character.weapon);
         }
     }
 

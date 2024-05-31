@@ -28,8 +28,6 @@ public class Main {
                 if (response == 'Y') {
                     lock = false;
                     Text.stallReadFile("./src/text/enterDungeonMessage.txt");
-
-                    Character.bag.addItem(Character.weapon);
                     while (Character.getPlayerHP() > 0) {
                         movementInterface(scanner);
                     }
@@ -48,7 +46,7 @@ public class Main {
             }
         }
     }
-
+    /**The interface that pops up at the start of each turn.*/
     private static void movementInterface(Scanner scanner) {
         gameMap.displayVisualMap();
         System.out.println(Arrays.toString(gameMap.getPlayerCoordinate()));
