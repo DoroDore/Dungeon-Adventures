@@ -1,2 +1,2 @@
-Items haven't been implemented yet
+Item haven't been implemented yet
 So this is a placeholder

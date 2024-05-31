@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
-
+//Very simply used for testing specific aspects of my game I am working on
 public class Testing {
     public static void main(String[] args) throws IOException, ParseException {
         testRewardSystem();

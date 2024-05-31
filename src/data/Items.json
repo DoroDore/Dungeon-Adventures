@@ -1,0 +1,42 @@
+[
+  {
+    "ID": 1,
+    "Name": "Health Potion",
+    "Size": 1,
+    "Rarity": "Common",
+    "Value": 100,
+    "Description": "A vial of red liquid with medicinal properties."
+  },
+  {
+    "ID": 2,
+    "Name": "Wild Berries",
+    "Size": 1,
+    "Rarity": "Common",
+    "Value": 50,
+    "Description": "A branch full of wild berries."
+  },
+  {
+    "ID": 3,
+    "Name": "Whetstone",
+    "Size": 1,
+    "Rarity": "Rare",
+    "Value": 200,
+    "Description": "A special stone made for sharpening weapons."
+  },
+  {
+    "ID": 4,
+    "Name": "Bitter Root",
+    "Size": 1,
+    "Rarity": "Common",
+    "Value": 50,
+    "Description":"A root that grows in the dark corners of the dungeon.\nIt tastes especially bitter."
+  },
+  {
+    "ID": 5,
+    "Name": "Dummy",
+    "Size": 1,
+    "Rarity": "Legendary",
+    "Value": 10,
+    "Description":"Woah a dummy"
+  }
+]

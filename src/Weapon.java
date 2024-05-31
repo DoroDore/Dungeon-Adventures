@@ -1,26 +1,17 @@
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.HashMap;
-
-public class Weapon extends Items{
+public class Weapon extends Item {
     private int attack, defense, skillCost;
     private String skill, skillDescription, weaponDescription;
 
 
     public Weapon(int id, String name, int size, String rarity, int value, int attack, int defense, String skill,
-                  int skillCost, String skillDescription, String weaponDescription) {
-        super(id, name, size, rarity, value);
+                  int skillCost, String skillDescription, String description) {
+        super(id, name, size, rarity, value, description);
         this.attack = attack;
         this.defense = defense;
         this.skill = skill;
         this.skillCost = skillCost;
         this.skillDescription = skillDescription;
-        this.weaponDescription = weaponDescription;
+        this.weaponDescription = description;
     }
     public void setAttack(int attack) {
         this.attack = attack;

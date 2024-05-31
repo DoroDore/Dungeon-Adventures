@@ -6,6 +6,6 @@ O: Empty Tile   W: Wall   F: Fight   E: Event   L: Loot   U: Exit (Where the pla
 The amount of points rewarded is based on the difficultly of the encounter or the outcome of the event based on player choice.
 Though reaching and exiting a floor will reward you with the most points, it is also increases the difficultly of encounters.
 Thus, it is recommended that you spend time fully exploring a map before proceeding on, as you never know what loot you may find!
-The turns in this game are simple, with three main mechanics: Movement, Looking, and Items. This game uses prefixes to differentiate between the player's actions.
+The turns in this game are simple, with three main mechanics: Movement, Looking, and Item. This game uses prefixes to differentiate between the player's actions.
 For more information on any of these features please view their respective dedicated tutorials.
 With all that, good luck in the dungeon! [Press Enter/Return to Exit]

@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
-
 public class Enemy {
     public static Enemy gCurrentEnemy;
     static HashMap<String, Enemy> gEnemyMap = new HashMap<>();

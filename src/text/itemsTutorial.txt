@@ -1,4 +1,4 @@
-Items in this game are divided into two main types: Weapons and General Items.
+Item in this game are divided into two main types: Weapons and General Item.
 Each item has a given rarity. These include common, rare, epic, legendary, and sacred.
 It is important to note, however, that these items do not become any more common as the game progresses. Instead, their drop rates will be set for the entire game.
 On top of that, all items will have a "Latent Level" when obtained, which will not change. This essentially shows the power level of the weapon.

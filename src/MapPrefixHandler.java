@@ -1,21 +1,25 @@
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 public class MapPrefixHandler implements PrefixHandler{
-    private final Map<String, Method> mapPrefixes;
-    private final GameMap gameMap;
+    private final Map<String, Method> mapPrefixes; //Very important, because this is a hashMap that calls methods when you use the ".get()" method.
+    private final GameMap gameMap; //The gameMap object that all the commands will be referring to.
     public MapPrefixHandler(GameMap gameMap) {
         mapPrefixes = new HashMap<>();
         this.gameMap = gameMap;
         initializePrefixes();
 
     }
+    /**
+     * Initializes all the prefixes and stores them into the hashMap
+     * The latter part utilizes Java's Method Reflection, or Reflection, which allows the calling of a method
+     * even without knowing whether it exists.
+     */
     @Override
     public void initializePrefixes() {
         try {
-            mapPrefixes.put("look", this.getClass().getMethod("handleLook", String.class));
+            mapPrefixes.put("look", this.getClass().getMethod("handleLook", String.class)); //String.class at the back is a parameter that it accepts
             mapPrefixes.put("move", this.getClass().getMethod("handleMove", String.class));
             mapPrefixes.put("item", this.getClass().getMethod("handleItem", String.class));
             mapPrefixes.put("bag", this.getClass().getMethod("handleBag", String.class));
@@ -26,6 +30,11 @@ public class MapPrefixHandler implements PrefixHandler{
             e.printStackTrace();
         }
     }
+    /**
+     * Gets an input and splits it at the first whitespace. Takes the first part and calls it through the mapPrefixes
+     * hashMap, using the second part as the argument that is inputted into the method that is called
+     * @param input The input that the user will give.
+     */
     @Override
     public void handlePrefix(String input) {
         String[] parts = input.split(" ", 2);
@@ -43,6 +52,11 @@ public class MapPrefixHandler implements PrefixHandler{
             System.out.println("Unknown prefix: " + prefix);
         }
     }
+
+    /**
+     * Handles the logic behind looking at tiles in the map and revealing them
+     * @param argument The direction that the user has chosen to look in.
+     */
     public void handleLook(String argument) {
         switch (argument) {
             case "left":
@@ -62,6 +76,11 @@ public class MapPrefixHandler implements PrefixHandler{
                 break;
         }
     }
+
+    /**
+     * Handles the logic behind movement between tiles in the map.
+     * @param argument The direction that the user has chosen to move in.
+     */
     public void handleMove(String argument) {
         switch (argument) {
             case "left":
@@ -81,9 +100,19 @@ public class MapPrefixHandler implements PrefixHandler{
                 break;
         }
     }
+
+    /**
+     * Work in progress, hasn't been implemented to examine items yet.
+     * @param argument The specific commands related to items in the game.
+     */
     public void handleItem(String argument) {
         System.out.println("Iteming " + argument);
     }
+
+    /**
+     * Handles the logic behind accessing contents in the bag
+     * @param argument The specific command the user wants.
+     */
     public void handleBag(String argument) {
         Scanner scanner = new Scanner(System.in);
         switch (argument) {
@@ -106,7 +135,7 @@ public class MapPrefixHandler implements PrefixHandler{
                         discardedItemIndex = Integer.parseInt(input);
                         if (discardedItemIndex >= 1) {
                             // Valid item index, remove the item
-                            Items discardedItem = Character.bag.getItem(discardedItemIndex - 1);
+                            Item discardedItem = Character.bag.getItem(discardedItemIndex - 1);
                             Character.bag.removeItem(discardedItemIndex - 1);
                             System.out.println("You have discarded: " + discardedItem.getName());
                         } else {
@@ -123,6 +152,11 @@ public class MapPrefixHandler implements PrefixHandler{
                 break;
         }
     }
+
+    /**
+     * Calls respective tutorial texts based on the user choice
+     * @param argument What the user wants help with
+     */
     public void handleHelp(String argument) {
         switch (argument) {
             case "look":
@@ -142,6 +176,11 @@ public class MapPrefixHandler implements PrefixHandler{
                 break;
         }
     }
+
+    /**
+     * Hidden commands that give cheats or are for bug-fixing
+     * @param argument The specific command within "Admin" that the user wants to access
+     */
     public void handleAdmin(String argument) {
         System.out.println("ADMIN COMMAND");
         switch (argument) {

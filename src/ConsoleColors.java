@@ -1,6 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
-
+//Very clever class which has all my ANSI Escape Sequences, so I don't have to type them all out every time.
 public class ConsoleColors {
     // Color constants
     public static final String RESET = "\u001B[0m";

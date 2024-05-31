@@ -6,6 +6,7 @@ public class Character {
     public static int playerMana;
     public static Weapon weapon;
     public static Bag bag;
+    /**Gets the data from the save file that was read.*/
     public static void loadData() {
         playerName = Saves.getFileName();
         playerATK = Saves.getATK();

@@ -2,6 +2,9 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+
+/*Still a major work in progress! CombatPrefixHandler implements the prefix system from the interface
+* "PrefixHandler, and is supposed to be used for combat, which I haven't implemented yet.*/
 public class CombatPrefixHandler implements PrefixHandler {
     private Map<String, Method> combatPrefixes;
 

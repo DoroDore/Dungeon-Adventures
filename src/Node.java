@@ -14,6 +14,10 @@ public class Node {
         this.children = new ArrayList<>();
     }
 
+    /**
+     * Adds a child to the Node's List of children
+     * @param node The specified node that will be added
+     */
     public void addChild(Node node) {
         this.children.add(node);
     }

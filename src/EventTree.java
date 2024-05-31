@@ -17,7 +17,7 @@ public class EventTree {
     public EventTree() {
         eventMap = new HashMap<>();
     }
-
+    /**A method that reads a json file and creates each individual node, before assigning it to its parent*/
     public void buildTreeFromJSON(File jsonFile) {
         JSONParser parser = new JSONParser();
 
@@ -45,14 +45,20 @@ public class EventTree {
         }
     }
 
-    // Example method to retrieve the root node
+    /**Retrieves the root node, useful for finding the start of the event*/
     public Node getRootNode() {
         return eventMap.get(0);
     }
+    /**Prints out everything in the event starting from a specified node*/
     public void printEventTree(Node node) {
         printNode(node, 0);
     }
-
+    /**
+     * Recursively prints the information of a given Node and its child nodes in a hierarchical structure.
+     *
+     * @param node         The current node to print.
+     * @param indentLevel  The level of indentation for formatting purposes.
+     */
     private void printNode(Node node, int indentLevel) {
         StringBuilder indent = new StringBuilder();
         for (int i = 0; i < indentLevel; i++) {
@@ -67,6 +73,7 @@ public class EventTree {
             printNode(child, indentLevel + 1);
         }
     }
+    /**Runs the interaction from the Tree that calls it. Goes down the path decided by the user's inputs*/
     public void runInteraction() {
         Scanner scanner = new Scanner(System.in);
         int input;

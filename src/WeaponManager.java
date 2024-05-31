@@ -12,6 +12,11 @@ import java.util.Map;
 public class WeaponManager {
     private static final Map<Integer, Weapon> weaponMap = new HashMap<>();
 
+    /**
+     * Reads a JSONArray of data and creates all the weapons within it. Text is also colored during this process
+     * based on the rarity of the weapon
+     * @param data The data that is inputted in order to create the weapon
+     */
     public static void createWeapons(JSONArray data) {
         for (Object o : data) {
             JSONObject obj = (JSONObject) o;
@@ -32,6 +37,11 @@ public class WeaponManager {
             weaponMap.put(id, weapon);
         }
     }
+
+    /**
+     * Reads a file and returns the data from it
+     * @param fileName The path of the file
+     */
     private static JSONArray readFile(String fileName) throws IOException, ParseException {
         JSONParser parser = new JSONParser();
         JSONArray data = (JSONArray) parser.parse(new FileReader(fileName));

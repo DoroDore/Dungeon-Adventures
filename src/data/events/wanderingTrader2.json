@@ -70,5 +70,11 @@
     "Description": "\"Sorry, but I've got other things to do.\"",
     "ChoiceDialogue": "Turning around, you leave the man. Maybe in some world, he survives. You'll never know.",
     "ParentID": 3
+  },
+  {
+    "ID": 12,
+    "Description": "Reconsider",
+    "ChoiceDialogue": "You shake your head, and wonder how that thought got into your head.\n\"Sorry.\" You say.",
+    "ParentID": 4
   }
 ]

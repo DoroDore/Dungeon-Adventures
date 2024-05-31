@@ -6,7 +6,7 @@ import org.json.simple.parser.ParseException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
-
+//Was supposed to be used to differentiate the tiles, but not used anymore
 public class Tiles {
     private int id;
     private String name;

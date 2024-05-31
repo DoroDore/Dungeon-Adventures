@@ -8,6 +8,10 @@ public class GameMap {
     private char[][] map;
     private char[][] visualMap;
     private int[] playerCoordinate = new int[2];
+    /**
+     * Generates a random map within the parameters of 13x13.
+     * Creates the surrounding walls and fills the rest with random tiles before finding the exit marked by 'X'
+     */
     public void generateMap() {
         Random rand = new Random();
         int rows = rand.nextInt(7) + 7;
@@ -38,11 +42,20 @@ public class GameMap {
         }
         this.map[exitRow][exitColumn] = 'X'; // Exit tile
     }
-    /** Check if a tile is surrounded by walls */
+    /**
+     * Check if a tile is surrounded by walls
+     * @param row    The coordinate of the row or x-axis in the 2d array
+     * @param column The coordinate of the column or y-axis in the 2d array
+     */
     private boolean isSurroundedByWalls(int row, int column) {
         return this.map[row - 1][column] == 'W' && this.map[row + 1][column] == 'W' &&
                 this.map[row][column - 1] == 'W' && this.map[row][column + 1] == 'W';
     }
+    /**
+     * Check if the player is about to be placed on an illegal tile
+     * @param row    The coordinate of the row or x-axis in the 2d array
+     * @param column The coordinate of the column or y-axis in the 2d array
+     */
     private boolean isOnIllegalTile(int row, int column) {
         return this.map[row][column] == 'W' || this.map[row][column] == 'X';
     }
@@ -52,6 +65,7 @@ public class GameMap {
         myMap.setupMap();
         myMap.displayMap();
     }
+    /**Gets the 2d array and prints it out in an organized fashion, using ANSI Escape Sequences to color code*/
     public void displayMap() {
         for (char[] chars : map) {
             for (char aChar : chars) {
@@ -85,6 +99,7 @@ public class GameMap {
             System.out.println(); // Move to the next line after printing each row
         }
     }
+    /**Does the same as above but for the visual map, which is what the player sees.*/
     public void displayVisualMap() {
         for (char[] chars : visualMap) {
             for (char aChar : chars) {
@@ -118,6 +133,7 @@ public class GameMap {
             System.out.println(); // Move to the next line after printing each row
         }
     }
+    /**used to randomly place the player in an acceptable location.*/
     private void placePlayer() {
         Random rand = new Random();
         int x = rand.nextInt(this.map[0].length-2) + 1;
@@ -187,12 +203,16 @@ public class GameMap {
             }
         }
     }
+    /**
+     * Reveals the cluster of tiles based on the user's specified direction.
+     * @param direction Specifies which direction to reveal clusters in.
+     */
     public void playerLook(String direction) {
         int x = 0, y = 0;
         y = switch (direction) {
             case "left" -> {
                 x = -1;
-                yield 0;
+                yield 0; //Yield is like return, and will change the value of Y based on outcomes.
             }
             case "right" -> {
                 x = 1;
@@ -207,8 +227,12 @@ public class GameMap {
             default -> y;
         };
         revealCluster(playerCoordinate[0]+x, playerCoordinate[1]+y);
-        displayVisualMap();
     }
+    /**
+     * Reveal a tile along with its adjacent tiles
+     * @param x The x coordinate in the 2d array for the center tile that will be revealed
+     * @param y The y coordinate in the 2d array for the center tile that will be revealed
+     */
     public void revealCluster(int x, int y) {
         visualMap[y][x] = map[y][x];
         visualMap[y+1][x] = map[y+1][x];

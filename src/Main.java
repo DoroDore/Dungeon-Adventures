@@ -61,7 +61,7 @@ public class Main {
         gameMap.setupMap();
         EventManager.loadEvents();
         WeaponManager.createWeapons(readFile("./src/data/Weapon.json"));
-
+        ItemManager.createItems(readFile("./src/data/Items.json"));
     }
     /**Handles all the code for viewing and accessing saves.*/
     private static void handleSave(Scanner scanner) throws IOException, ParseException {
@@ -131,10 +131,12 @@ public class Main {
             }
         }
     }
+    /**A neat little method used to stall the progression of text by requiring the player to press enter/return*/
     private static void stall() {
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
     }
+    /**Sa method that only returns a y/n after an acceptable answer is given.*/
     private static char yesNo(Scanner scanner) {
         boolean validInput = false;
         char choice = 'A'; // Default value
@@ -153,6 +155,7 @@ public class Main {
 
         return choice;
     }
+    /**Displays the options in the menu at the start of the game.*/
     private static char menuOptions(Scanner scanner) {
         Text.readFile("./src/text/mainMenu.txt");
         String input = scanner.nextLine().toUpperCase();
