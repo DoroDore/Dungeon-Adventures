@@ -181,7 +181,6 @@ public class GameMap {
                         if (input.equalsIgnoreCase("yes")) {
                             System.out.println("Moving to the next floor...");
                             this.setupMap();
-                            this.displayVisualMap();
                             return;
                         } else {
                             System.out.println("You didn't move to the next floor.");
