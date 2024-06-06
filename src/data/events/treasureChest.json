@@ -1,0 +1,44 @@
+[
+  {
+    "ID": 0,
+    "Description": "Pushing open a chipped and decaying wooden door, you find yourself in an empty room.\nIn the center, lies a single chest.\nDespite slight rusting around the edges, the box itself seems intact.",
+    "ChoiceDialogue": null,
+    "ParentID": -1
+  },
+  {
+    "ID": 1,
+    "Description": "Open it",
+    "ChoiceDialogue": "Creeping cautiously over to the chest, you attempt to lift the lid. However, it doesn't budge.",
+    "ParentID": 0
+  },
+  {
+    "ID": 2,
+    "Description": "Ignore it.",
+    "ChoiceDialogue": "Turning away, you exit the room.",
+    "ParentID": 0
+  },
+  {
+    "ID": 3,
+    "Description": "Try again",
+    "ChoiceDialogue": "You try again, and realize the mistake was that it is a sliding box.\nAs the box slides open, it reveals a row of five purple potions.",
+    "ParentID": 1
+  },
+  {
+    "ID": 4,
+    "Description": "Kick it",
+    "ChoiceDialogue": "You muster your force before kicking the box with all your might.\nThe force of the impact destroys the box and shattering whatever is inside. You realize that some purple liquid is seeping out from the broken glass bottles. However, you'll never know what was inside.",
+    "ParentID": 1
+  },
+  {
+    "ID": 5,
+    "Description": "Take the potions",
+    "ChoiceDialogue": "Curious, you take the potions and store them in your bag.",
+    "ParentID": 3
+  },
+  {
+    "ID": 6,
+    "Description": "Leave them",
+    "ChoiceDialogue": "The potions seem to suspicious, so you leave them and exit the room.",
+    "ParentID": 3
+  }
+]

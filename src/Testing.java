@@ -11,7 +11,7 @@ import java.util.Scanner;
 //Very simply used for testing specific aspects of my game I am working on
 public class Testing {
     public static void main(String[] args) throws IOException, ParseException {
-        testRewardSystem();
+        testRandomEvent();
     }
 
     public static void testRewardSystem() throws IOException, ParseException {
