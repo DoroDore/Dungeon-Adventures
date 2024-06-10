@@ -5,9 +5,7 @@ import org.json.simple.parser.ParseException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Map;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 public class Main {
     static GameMap gameMap;
@@ -28,7 +26,7 @@ public class Main {
                 if (response == 'Y') {
                     lock = false;
                     Text.stallReadFile("./src/text/enterDungeonMessage.txt");
-                    while (Character.getPlayerHP() > 0) {
+                    while (Character.getHP() > 0) {
                         movementInterface(scanner);
                     }
 

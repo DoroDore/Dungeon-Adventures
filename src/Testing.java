@@ -11,9 +11,14 @@ import java.util.Scanner;
 //Very simply used for testing specific aspects of my game I am working on
 public class Testing {
     public static void main(String[] args) throws IOException, ParseException {
-        testRandomEvent();
+        testItemIntensities();
     }
+    public static void testItemIntensities() throws IOException, ParseException {
+        ItemManager.createItems(Main.readFile("./src/data/Items.json"));
+        Item item = ItemManager.getItemMap().get(4);
+        item.useItem();
 
+    }
     public static void testRewardSystem() throws IOException, ParseException {
         WeaponManager.createWeapons(Main.readFile("./src/data/Weapon.json"));
         LootManager.plainLoot(5);

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Bag {
     private int bagSpace; //Tracks the total size of the bag
-    private List<Item> items; //The dynamic list which keeps track of everything in the player's bag, the bagSpace is calculated based off the totalBagSpace - the sum of the space of all the items.
+    private final List<Item> items; //The dynamic list which keeps track of everything in the player's bag, the bagSpace is calculated based off the totalBagSpace - the sum of the space of all the items.
     public Bag(int bagSpace) {
         this.bagSpace = bagSpace;
         this.items = new ArrayList<>();
@@ -28,7 +28,6 @@ public class Bag {
             System.out.println("[" + counter + "] Name: " + item.getName() + ", Size: " + item.getSize() + " " + suffix);
             counter++;
         }
-        Scanner scanner = new Scanner(System.in);
     }
     /**Lists exclusively the weapons found in the bag.*/
     public void listBagWeapons() {
@@ -36,6 +35,16 @@ public class Bag {
         for (Item item : items) {
             if (item instanceof Weapon weapon) { // Check if the item is an instance of Weapon
                 System.out.println("[" + counter + "] Name: " + weapon.getName() + ", Size: " + weapon.getSize());
+                counter++;
+            }
+        }
+    }
+    /**Used to list all items except weapons*/
+    public void listAllItemsExceptWeapons() {
+        int counter = 1;
+        for (Item item : items) {
+            if (!(item instanceof Weapon)) {
+                System.out.println("[" + counter + "] Name: " + item.getName() + ", Size: " + item.getSize());
                 counter++;
             }
         }
@@ -49,6 +58,15 @@ public class Bag {
             }
         }
         return weapons;
+    }
+    public ArrayList<Item> bagItemsArrayList() {
+        ArrayList<Item> itemList = new ArrayList<>();
+        for (Item item : items) {
+            if (!(item instanceof Weapon)) {
+                itemList.add(item);
+            }
+        }
+        return itemList;
     }
     /**Used to switch the current weapon of the player.*/
     public void switchWeapon() {
@@ -100,5 +118,7 @@ public class Bag {
         }
         return totalSize;
     }
-
+    public List<Item> getItems() {
+        return items;
+    }
 }

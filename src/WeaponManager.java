@@ -33,7 +33,7 @@ public class WeaponManager {
             int skillCost = ((Long) obj.get("SkillCost")).intValue();
             String skillDescription = (String) obj.get("SkillDescription");
             String weaponDescription = (String) obj.get("WeaponDescription");
-            Weapon weapon = new Weapon(id, formattedName, size, rarity, value, attack, defense, skill, skillCost, skillDescription, weaponDescription);
+            Weapon weapon = new Weapon(id, formattedName, size, rarity, value, attack, defense, skill, skillCost, skillDescription, weaponDescription, null, null);
             weaponMap.put(id, weapon);
         }
     }

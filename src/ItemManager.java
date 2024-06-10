@@ -17,12 +17,29 @@ public class ItemManager {
             int id = ((Long) obj.get("ID")).intValue();
             String name = (String) obj.get("Name");
             String rarity = (String) obj.get("Rarity");
-            String color = ConsoleColors.colorMapping.getOrDefault(rarity, ConsoleColors.CYAN); // Cyan for any other rarity
-            String formattedName = color + name + ConsoleColors.RESET; // Reset color after the name
+            String color = ConsoleColors.colorMapping.getOrDefault(rarity, ConsoleColors.CYAN);
+            String formattedName = color + name + ConsoleColors.RESET;
             int size = ((Long) obj.get("Size")).intValue();
             int value = ((Long) obj.get("Value")).intValue();
             String description = (String) obj.get("Description");
-            Item item = new Item(id, formattedName, size, rarity, value, description);
+
+            JSONArray effectsArray = (JSONArray) obj.get("Effect");
+            JSONArray intensitiesArray = (JSONArray) obj.get("EffectIntensity");
+
+            String[] effects = null;
+            int[] effectIntensities = null;
+
+            if (effectsArray != null && intensitiesArray != null) {
+                effects = new String[effectsArray.size()];
+                effectIntensities = new int[intensitiesArray.size()];
+
+                for (int i = 0; i < effectsArray.size(); i++) {
+                    effects[i] = (String) effectsArray.get(i);
+                    effectIntensities[i] = ((Long) intensitiesArray.get(i)).intValue();
+                }
+            }
+
+            Item item = new Item(id, formattedName, size, rarity, value, description, effects, effectIntensities);
             itemMap.put(id, item);
         }
     }

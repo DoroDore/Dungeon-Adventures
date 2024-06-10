@@ -1,42 +1,48 @@
 public class Character {
-    public static String playerName;
-    public static int playerATK;
-    public static int playerDEF;
-    public static int playerHP;
-    public static int playerMana;
+    public static String name;
+    public static int attack;
+    public static int defense;
+    public static int HP;
+    public static int mana;
     public static Weapon weapon;
     public static Bag bag;
     /**Gets the data from the save file that was read.*/
     public static void loadData() {
-        playerName = Saves.getFileName();
-        playerATK = Saves.getATK();
-        playerDEF = Saves.getDEF();
-        playerHP = Saves.getHP();
-        playerMana = Saves.getMana();
+        name = Saves.getFileName();
+        attack = Saves.getATK();
+        defense = Saves.getDEF();
+        HP = Saves.getHP();
+        mana = Saves.getMana();
         weapon = WeaponManager.getWeaponMap().get(1);
         bag = new Bag(10);
     }
-    public static String getPlayerName() {
-        return playerName;
+    public static String getName() {
+        return name;
     }
-    public static int getPlayerATK() {
-        return playerATK;
+    public static int getAttack() {
+        return attack;
     }
-    public static int getPlayerDEF() {
-        return playerDEF;
+    public static int getDefense() {
+        return defense;
     }
-    public static int getPlayerHP() {
-        return playerHP;
+    public static int getHP() {
+        return HP;
     }
-    public static int getPlayerMana() {
-        return playerMana;
+    public static int getMana() {
+        return mana;
     }
     public static void playerDamage(int damageReceived) {
-        playerHP -= (damageReceived - playerDEF);
+        HP -= (damageReceived - defense);
+    }
+    public static int getPlayerTotalAttack() {
+        return attack + weapon.getAttack();
+    }
+    public static int getPlayerTotalDefense() {
+        return defense + weapon.getDefense();
     }
     public static void displayPlayerStats() {
-        System.out.println("Character Name: " + playerName + "\tCurrent HP: " + playerHP);
-        System.out.println("ATK: " + playerATK + "\tDEF: " + playerDEF + "\tMana: " + playerMana);
+        System.out.println("Character Name: " + name + "\tCurrent HP: " + HP);
+        System.out.println("ATK: " + getPlayerTotalAttack() + "\tDEF: " + getPlayerTotalDefense() + "\tMana: " + mana);
         System.out.println("Weapon: " + weapon.getName() + "\t Bag Space: " + bag.getAvailableSpace());
     }
 }

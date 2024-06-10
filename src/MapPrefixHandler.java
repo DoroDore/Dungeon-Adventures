@@ -1,3 +1,4 @@
+import java.io.Console;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
@@ -118,8 +119,33 @@ public class MapPrefixHandler implements PrefixHandler{
         switch (argument) {
             case "contents":
                 Character.bag.listBagContents();
-                System.out.println("Input anything to continue...");
-                scanner.nextLine();
+                System.out.println("To inspect an item, input the corresponding number.");
+                System.out.println("Input anything else to exit...");
+                while (true) {
+                    try {
+                        String input = scanner.nextLine().trim();
+                        if (input.isEmpty()) {
+                            System.out.println("Exiting...");
+                            break;
+                        }
+                        int itemNumber = Integer.parseInt(input);
+                        int lastIndex = Character.bag.getItems().size() - 1;
+                        if (itemNumber < 1 || itemNumber > lastIndex + 1) {
+                            System.out.println("Invalid item number. Exiting...");
+                            break;
+                        }
+                        Item item = Character.bag.getItem(itemNumber - 1);
+                        item.displayFormattedStats();
+                        System.out.println(ConsoleColors.CYAN + "--------------------" + ConsoleColors.RESET);
+
+                        // Prompt for another inspection or exit
+                        System.out.println("To inspect another item, input the corresponding number.");
+                        System.out.println("Input nothing to exit...");
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid input. Exiting...");
+                        break;
+                    }
+                }
                 break;
             case "equip weapon":
                 Character.bag.switchWeapon();
@@ -133,7 +159,7 @@ public class MapPrefixHandler implements PrefixHandler{
                     String input = scanner.nextLine();
                     try {
                         discardedItemIndex = Integer.parseInt(input);
-                        if (discardedItemIndex >= 1) {
+                        if (discardedItemIndex >= 1 && discardedItemIndex < Character.bag.getItems().size()) {
                             // Valid item index, remove the item
                             Item discardedItem = Character.bag.getItem(discardedItemIndex - 1);
                             Character.bag.removeItem(discardedItemIndex - 1);
@@ -147,6 +173,28 @@ public class MapPrefixHandler implements PrefixHandler{
                     }
                 } while (true);
                 break;
+            case "use item":
+                int usedItemIndex;
+                do {
+                    System.out.println("Which item would you like to use?");
+                    Character.bag.listAllItemsExceptWeapons();
+                    System.out.println("Input anything else to exit.");
+                    String input = scanner.nextLine();
+                    try {
+                        usedItemIndex = Integer.parseInt(input);
+                        if (usedItemIndex >= 1 && usedItemIndex < Character.bag.getItems().size()) {
+                            System.out.println("Temp used");
+                        }
+                        else {
+                            System.out.println("Temp");
+                        }
+                    }
+                    catch (NumberFormatException e) {
+                        break;
+                    }
+                } while (true);
+
+
             default:
                 System.out.println("Illegal command detected. Please try again or get help with the \"Help\" command.");
                 break;

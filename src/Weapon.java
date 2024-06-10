@@ -4,8 +4,8 @@ public class Weapon extends Item {
 
 
     public Weapon(int id, String name, int size, String rarity, int value, int attack, int defense, String skill,
-                  int skillCost, String skillDescription, String description) {
-        super(id, name, size, rarity, value, description);
+                  int skillCost, String skillDescription, String description, String[] effects, int[] effectsIntensities) {
+        super(id, name, size, rarity, value, description, effects, effectsIntensities);
         this.attack = attack;
         this.defense = defense;
         this.skill = skill;
@@ -61,5 +61,14 @@ public class Weapon extends Item {
         System.out.println("Skill Cost: " + getSkillCost());
         System.out.println("Skill Description: " + getSkillDescription());
         System.out.println("Weapon Description: " + getWeaponDescription());
+    }
+    @Override
+    public void displayFormattedStats() {
+        System.out.println("Name: " + getName() + "\t Size: " + getSize() + "\t Rarity: " + getRarity());
+        System.out.println("ATK: " + getAttack() + "\t Defense: " + getDefense());
+        System.out.println("Value: " + getValue());
+        System.out.println("--------------------");
+        System.out.println("Skill: " + getSkill() + " (" + getSkillCost() + ")");
+        System.out.println(getSkillDescription());
     }
 }

@@ -5,7 +5,9 @@
     "Size": 1,
     "Rarity": "Common",
     "Value": 100,
-    "Description": "A vial of red liquid with medicinal properties."
+    "Description": "A vial of red liquid with medicinal properties.",
+    "Effect": ["PlayerHP"],
+    "EffectIntensity": [15]
   },
   {
     "ID": 2,
@@ -13,7 +15,9 @@
     "Size": 1,
     "Rarity": "Common",
     "Value": 50,
-    "Description": "A branch full of wild berries."
+    "Description": "A branch full of wild berries.",
+    "Effect": ["PlayerHP"],
+    "EffectIntensity": [10]
   },
   {
     "ID": 3,
@@ -21,7 +25,9 @@
     "Size": 1,
     "Rarity": "Rare",
     "Value": 200,
-    "Description": "A special stone made for sharpening weapons."
+    "Description": "A special stone made for sharpening weapons.",
+    "Effect": ["WeaponATK"],
+    "EffectIntensity": [2]
   },
   {
     "ID": 4,
@@ -29,7 +35,9 @@
     "Size": 1,
     "Rarity": "Common",
     "Value": 50,
-    "Description":"A root that grows in the dark corners of the dungeon.\nIt tastes especially bitter."
+    "Description":"A root that grows in the dark corners of the dungeon.\nIt tastes especially bitter.",
+    "Effect": ["PlayerATK", "PlayerHP"],
+    "EffectIntensity": [1, -10]
   },
   {
     "ID": 5,
@@ -37,6 +45,18 @@
     "Size": 1,
     "Rarity": "Legendary",
     "Value": 10,
-    "Description":"Woah a dummy"
+    "Description":"Woah a dummy",
+    "Effect": ["null"],
+    "EffectIntensity": [0]
+  },
+  {
+    "ID": 6,
+    "Name": "Suspicious Purple Potion",
+    "Size": 1,
+    "Rarity": "Rare",
+    "Value": 10,
+    "Description":"A strange purple potion. You aren't sure what it does.",
+    "Effect": ["PlayerATK", "PlayerDEF"],
+    "EffectIntensity": [3, 2]
   }
 ]
