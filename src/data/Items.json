@@ -57,6 +57,36 @@
     "Value": 10,
     "Description":"A strange purple potion. You aren't sure what it does.",
     "Effect": ["PlayerATK", "PlayerDEF"],
-    "EffectIntensity": [3, 2]
+    "EffectIntensity": [3, -2]
+  },
+  {
+    "ID": 7,
+    "Name": "Jesus's Seven String Guitar",
+    "Size": 1,
+    "Rarity": "Sacred",
+    "Value": 300,
+    "Description":"\"Playing the guitar will give you two omniboosts\"",
+    "Effect": ["PlayerATK", "PlayerDEF", "PlayerHP"],
+    "EffectIntensity": [5, 5, 35]
+  },
+  {
+    "ID": 8,
+    "Name": "Glasses of the Legendary Tam",
+    "Size": 1,
+    "Rarity": "Legendary",
+    "Value": 300,
+    "Description": "A pair of glasses.",
+    "Effect": ["PlayerATK*"],
+    "EffectIntensity": [2]
+  },
+  {
+    "ID": 9,
+    "Name": "Healing Salve",
+    "Size": 1,
+    "Rarity": "Rare",
+    "Value": 50,
+    "Description": "A homemade salve with medicinal properties",
+    "Effect": ["PlayerHP"],
+    "EffectIntensity": [20]
   }
 ]

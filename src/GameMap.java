@@ -140,7 +140,7 @@ public class GameMap {
         int y = rand.nextInt(this.map.length-2) + 1;
         while (isOnIllegalTile(y, x)) {
             x = rand.nextInt(this.map[0].length-2) +1 ;
-            y = rand.nextInt(this.map.length)-2 + 1;
+            y = rand.nextInt(this.map.length-2) + 1;
         }
         playerCoordinate[0] = x;
         playerCoordinate[1] = y;

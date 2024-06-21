@@ -30,9 +30,33 @@ public class EventTree {
                 int id = Integer.parseInt(jsonObj.get("ID").toString());
                 int parentID = Integer.parseInt(jsonObj.get("ParentID").toString());
                 String description = jsonObj.get("Description").toString();
-                String choiceDialogue = (String) jsonObj.get("ChoiceDialogue");
 
-                Node node = new Node(id, parentID, description, choiceDialogue);
+                Object choiceDialogueObj = jsonObj.get("ChoiceDialogue");
+                String choiceDialogue;
+                if (choiceDialogueObj instanceof JSONArray) {
+                    JSONArray choiceDialogueArray = (JSONArray) choiceDialogueObj;
+                    choiceDialogue = choiceDialogueArray.isEmpty() ? null : choiceDialogueArray.get(0).toString();
+                } else {
+                    choiceDialogue = (String) choiceDialogueObj;
+                }
+
+                JSONArray effectsArray = (JSONArray) jsonObj.get("Effect");
+                JSONArray valuesArray = (JSONArray) jsonObj.get("EffectValue");
+
+                String[] effects = null;
+                int[] values = null;
+
+                if (effectsArray != null && valuesArray != null) {
+                    effects = new String[effectsArray.size()];
+                    values = new int[valuesArray.size()];
+
+                    for (int i = 0; i < effectsArray.size(); i++) {
+                        effects[i] = (String) effectsArray.get(i);
+                        values[i] = ((Long) valuesArray.get(i)).intValue();
+                    }
+                }
+
+                Node node = new Node(id, parentID, description, choiceDialogue, effects, values);
                 eventMap.put(id, node);
 
                 if (parentID != -1) {
@@ -99,6 +123,7 @@ public class EventTree {
                         validInput = true;
                         currentNode = children.get(input - 1);
                         System.out.println(ConsoleColors.CYAN + currentNode.getChoiceDialogue() + ConsoleColors.RESET);
+                        currentNode.getOutcomes();
                     }
                 }
             }

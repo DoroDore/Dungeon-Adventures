@@ -2,79 +2,105 @@
   {
     "ID": 0,
     "Description": "You encounter a wandering trader.\nHe leans heavily on the side of a dungeon wall.",
-    "ChoiceDialogue": null,
-    "ParentID": -1
+    "ChoiceDialogue": ["null"],
+    "ParentID": -1,
+    "Effect": ["null"],
+    "EffectValue": [0]
   },
   {
     "ID": 1,
     "Description": "Walk up to him",
     "ChoiceDialogue": "You walk up to him. Upon closer inspection, you realize his hand is covering his side.\nThe darkening color of red spreads through his shirt.",
-    "ParentID": 0
+    "ParentID": 0,
+    "Effect": ["null"],
+    "EffectValue": [0]
   },
   {
     "ID": 2,
     "Description": "Ignore him",
     "ChoiceDialogue": "You pay him no attention and walk away.",
-    "ParentID": 0
+    "ParentID": 0,
+    "Effect": ["null"],
+    "EffectValue": [0]
   },
   {
     "ID": 3,
     "Description": "\"Are you okay?\"",
     "ChoiceDialogue": "Concerned you walk up to the trader. His face is strained and rapidly losing color.\nHe shrugs. \"I've been better\"",
-    "ParentID": 1
+    "ParentID": 1,
+    "Effect": ["null"],
+    "EffectValue": [0]
   },
   {
     "ID": 4,
     "Description": "\u001B[31m Kill him \u001B[0m",
     "ChoiceDialogue": "Suddenly, you feel a dark urge come over you.\nAs you walk up to the trader, he looks up.\n\"Hello, care to lend a hand?\"\nCaught off guard by his sudden response, you pause.",
-    "ParentID": 1
+    "ParentID": 1,
+    "Effect": ["null"],
+    "EffectValue": [0]
   },
   {
     "ID": 5,
     "Description": "\"How can I help?\"",
     "ChoiceDialogue": "Upon hearing your question, he gives you a weak smile of appreciation.\n\"I have a salve in my bag that I can use. It's just, I need you to help me apply it.\"",
-    "ParentID": 3
+    "ParentID": 3,
+    "Effect": ["null"],
+    "EffectValue": [0]
   },
   {
     "ID": 6,
     "Description": "\u001B[31m Shake your head. Those who lack resolve are weak. \u001B[0m",
     "ChoiceDialogue": "As you draw your weapon, you feel darkness grip your heart. With a single strike, you swing it at their side.\nFirst, the sound of a body toppling, then nothing. The man lies on the dungeon floor, unmoving.",
-    "ParentID": 4
+    "ParentID": 4,
+    "Effect": ["null"],
+    "EffectValue": [0]
   },
   {
     "ID": 7,
     "Description": "\"Sure\"",
     "ChoiceDialogue": "As you walk over to him, you rummage through his bag and take out the salve.\nTaking some, you spread it over the wound, and see the man visually relax.\n\"Thank you.\" He says. \"And for your help, take this.\"",
-    "ParentID": 5
+    "ParentID": 5,
+    "Effect": ["Item"],
+    "EffectValue": [9]
   },
   {
     "ID": 8,
     "Description": "\"Sure, but not without a price.\"",
     "ChoiceDialogue": "He groans, and shakes his head. Fine, what do you want?",
-    "ParentID": 5
+    "ParentID": 5,
+    "Effect": ["null"],
+    "EffectValue": [0]
   },
   {
     "ID": 9,
     "Description": "\"Money\"",
     "ChoiceDialogue": "Sure. Gingerly, he takes a coin purse out of his pocket and gives it to you.\nSatisfied, you agree to help him.\nOne you're done, you leave without a word.",
-    "ParentID": 8
+    "ParentID": 8,
+    "Effect": ["null"],
+    "EffectValue": [0]
   },
   {
     "ID": 10,
     "Description": "\"Goods\"",
     "ChoiceDialogue": "Sure. There's a health potion in my bag. Just take that, he sighs.\nSatisfied, you agree to help him.\nOne you're done, you leave without a word.",
-    "ParentID": 8
+    "ParentID": 8,
+    "Effect": ["Item"],
+    "EffectValue": [1]
   },
   {
     "ID": 11,
     "Description": "\"Sorry, but I've got other things to do.\"",
     "ChoiceDialogue": "Turning around, you leave the man. Maybe in some world, he survives. You'll never know.",
-    "ParentID": 3
+    "ParentID": 3,
+    "Effect": ["null"],
+    "EffectValue": [0]
   },
   {
     "ID": 12,
     "Description": "Reconsider",
     "ChoiceDialogue": "You shake your head, and wonder how that thought got into your head.\n\"Sorry.\" You say.",
-    "ParentID": 4
+    "ParentID": 4,
+    "Effect": ["null"],
+    "EffectValue": [0]
   }
 ]

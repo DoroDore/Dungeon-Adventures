@@ -11,8 +11,37 @@ public class Bag {
     }
     /**Adds an item to the list, but only if there is sufficient bag space.*/
     public void addItem(Item item) {
+        while (item.getSize() > getAvailableSpace()) {
+            System.out.println("Your bag is full. Would you like to get rid of an item to make room for the " + item.getName() + "?");
+            System.out.println("Yes/No");
+            Scanner scanner = new Scanner(System.in);
+            String response = scanner.nextLine().trim().toLowerCase();
+
+            if (response.equals("yes")) {
+                System.out.println("Enter the index of the item you want to remove:");
+                listBagContents(); // Assuming you have a method to display the items in the bag
+                int index = scanner.nextInt();
+                scanner.nextLine(); // Consume the newline character
+
+                if (index >= 0 && index < items.size()) {
+                    Item removedItem = items.remove(index-1);
+                    System.out.println("Removed item: " + removedItem.getName());
+                } else {
+                    System.out.println("Invalid index. Please try again.");
+                }
+            }
+            else if (response.equals("no")) {
+                System.out.println("Item not added to the bag.");
+                return; // Exit the method if the user chooses not to remove any items
+            }
+            else {
+                System.out.println("Please input a valid option.");
+            }
+        }
+
         if (getTotalSize() + item.getSize() <= bagSpace) {
             items.add(item);
+            System.out.println("You have added " + item.getName() + " to your inventory!");
         }
     }
     /**Used to list the contents of the bag in an organized manner*/

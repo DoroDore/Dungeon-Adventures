@@ -51,12 +51,7 @@ public class LootManager {
         } while (!validInput);
 
         Item selectedReward = rewards.get(selectedRewardIndex - 1);
-        if (selectedReward.getSize() > Character.bag.getAvailableSpace()) {
-            System.out.println("You do not have enough space to put this item in your bag.");
-        } else {
-            System.out.println("You have added " + selectedReward.getName() + " to your inventory!");
             Character.bag.addItem(selectedReward);
-        }
     }
     /**Used to get a random item from a hashMap and return it.*/
     public static <K, V> V getRandomItemFromHashMap(Map<K, V> map) {

@@ -1,5 +1,6 @@
 import java.io.Console;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -178,15 +179,20 @@ public class MapPrefixHandler implements PrefixHandler{
                 do {
                     System.out.println("Which item would you like to use?");
                     Character.bag.listAllItemsExceptWeapons();
+                    ArrayList<Item> onlyItems = Character.bag.bagItemsArrayList();
                     System.out.println("Input anything else to exit.");
                     String input = scanner.nextLine();
                     try {
                         usedItemIndex = Integer.parseInt(input);
-                        if (usedItemIndex >= 1 && usedItemIndex < Character.bag.getItems().size()) {
-                            System.out.println("Temp used");
+                        if (usedItemIndex >= 1 && usedItemIndex < Character.bag.getItems().size()+1) {
+                            Item usedItem = onlyItems.get(usedItemIndex-1);
+                            Character.bag.removeItem(usedItem);
+                            usedItem.useItem();
+                            break;
                         }
                         else {
-                            System.out.println("Temp");
+                            System.out.println("Invalid item index. Please try again.");
+                            break;
                         }
                     }
                     catch (NumberFormatException e) {

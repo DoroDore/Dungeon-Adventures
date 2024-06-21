@@ -115,5 +115,44 @@
     "SkillCost": 10,
     "SkillDescription": "Strike the enemy, bypassing some defense.",
     "WeaponDescription": "A bramble that seems to exude an aura of evil."
+  },
+  {
+    "ID": 10,
+    "Name": "The Sizzlebacon",
+    "Size": 3,
+    "Rarity": "Sacred",
+    "Value": 0,
+    "Attack": 30,
+    "Defense": 12,
+    "Skill": "Rising Phoenix",
+    "SkillCost": 15,
+    "SkillDescription": "Deals more damage the less HP you have and heals you.",
+    "WeaponDescription": "\"A drop of rage vial boiled in fire.\""
+  },
+  {
+    "ID": 11,
+    "Name": "Ultima Weapon",
+    "Size": 3,
+    "Rarity": "Legendary",
+    "Value": 1,
+    "Attack": 25,
+    "Defense": 5,
+    "Skill": "Ultimate Weapon",
+    "SkillCost": 50,
+    "SkillDescription": "Deals damage based on HP percentage.",
+    "WeaponDescription": "Dropped from the Ultimate Weapon"
+  },
+  {
+    "ID": 12,
+    "Name": "Fractured Sword",
+    "Size": 2,
+    "Rarity": "Common",
+    "Value": 50,
+    "Attack": 7,
+    "Defense": -1,
+    "Skill": "Brittle Bash",
+    "SkillCost": 10,
+    "SkillDescription": "Deals increased damage, but injures you also.",
+    "WeaponDescription": "A sword that has very obvious fractures. It might break at any moment."
   }
 ]

@@ -5,7 +5,7 @@ public class Item {
     private String rarity;
     private int value;
     private String description;
-    private String[] effects;
+    private final String[] effects;
     int[] effectIntensities;
     public Item(int id, String name, int size, String rarity, int value, String description, String[] effects, int[] effectIntensities) {
         String color = ConsoleColors.colorMapping.getOrDefault(rarity, ConsoleColors.CYAN); // Cyan for any other rarity
@@ -99,7 +99,12 @@ public class Item {
                 case "WeaponATK":
                     int originalAttack = Character.weapon.getAttack();
                     Character.weapon.setAttack(originalAttack + effectIntensities[i]);
-                    System.out.println("Your HP " + modifier + " by " + effectIntensities[i]);
+                    System.out.println("Your weapon's attack " + modifier + " by " + effectIntensities[i]);
+                    break;
+                case "WeaponATK*":
+                    originalAttack = Character.weapon.getAttack();
+                    Character.weapon.setAttack(originalAttack*effectIntensities[i]);
+                    System.out.println("Your weapon's attack was multiplied by a value of " + effectIntensities[i]);
                     break;
             }
         }
